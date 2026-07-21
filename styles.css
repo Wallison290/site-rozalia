@@ -290,10 +290,10 @@ h2 { font-size: clamp(2.2rem, 4.8vw, 3.8rem); font-weight: 500; }
 .origin-number p { max-width: 220px; margin: 1rem 0 0; font-size: 0.85rem; }
 .origin-photo { width: min(100%, 330px); aspect-ratio: 0.82; margin-top: 2.25rem; object-fit: cover; filter: saturate(0.72) contrast(1.03); border: var(--border); }
 .memory-frame { position: absolute; width: min(100%, 365px); left: -18px; bottom: -18px; opacity: 0.58; mix-blend-mode: multiply; pointer-events: none; }
-.origin-copy { width: 100%; max-width: none; display: flex; flex-direction: column; height: 100%; }
+.origin-copy { width: 100%; max-width: none; display: flex; flex-direction: column; justify-content: center; height: 100%; }
 .origin-copy h2 { margin-bottom: 2rem; }
 .origin-copy p { margin-bottom: 1.4rem; font-size: 1.05rem; }
-.origin-copy .text-link { margin-top: auto; padding-top: 2rem; }
+.origin-copy .text-link { margin-top: 0.5rem; }
 .text-link--light { margin-top: 1.2rem; }
 
 .author-grid { display: grid; gap: 4rem; align-items: center; }
