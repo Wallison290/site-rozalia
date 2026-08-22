@@ -213,7 +213,8 @@ h2 { font-size: clamp(2.2rem, 4.8vw, 3.8rem); font-weight: 500; }
   filter: drop-shadow(16px 20px 26px rgba(8, 18, 10, 0.45));
   transition: opacity 560ms ease, transform 560ms ease;
 }
-.book-shot--open { opacity: 0; transform: scale(0.96); }
+/* O livro aberto é mais largo que a capa fechada e ganha mais área no palco */
+.book-shot--open { width: 138%; left: -19%; right: auto; opacity: 0; transform: scale(0.96); }
 .book-stage:hover .book-shot--closed,
 .book-stage:focus-within .book-shot--closed,
 .book-stage.is-open .book-shot--closed { opacity: 0; transform: scale(0.96); }
@@ -305,10 +306,10 @@ h2 { font-size: clamp(2.2rem, 4.8vw, 3.8rem); font-weight: 500; }
 .author-copy > p:not(.eyebrow):not(.author-role) { font-size: 1.08rem; }
 .author-copy blockquote { margin: 2.5rem 0 0; padding: 1.5rem 0 0 1.5rem; border-top: var(--border); border-left: 2px solid var(--color-accent); font-size: clamp(1.1rem, 2vw, 1.4rem); line-height: 1.45; }
 
-.preorder { background-color: var(--color-accent); background-image: url("assets/icones-pagina-edição-especial.png"), var(--texture-horizontal); background-repeat: repeat, repeat; background-size: 560px auto, var(--texture-size); background-blend-mode: soft-light, multiply; color: var(--color-bg); }
+.preorder { position: relative; overflow: hidden; background-color: var(--color-accent); background-image: url("assets/icones-pagina-edição-especial.png"), var(--texture-horizontal); background-repeat: repeat, repeat; background-size: 560px auto, var(--texture-size); background-blend-mode: soft-light, multiply; color: var(--color-bg); }
 .preorder-grid { display: grid; gap: 4.5rem; align-items: center; }
 .preorder-visual { position: relative; }
-.preorder-monogram { position: absolute; width: min(62%, 300px); right: -14%; top: 46%; opacity: 0.16; transform: translateY(-50%); mix-blend-mode: screen; }
+.preorder-monogram { position: absolute; width: min(62%, 300px); right: -10%; top: 0; opacity: 0.22; transform: translateY(-46%); mix-blend-mode: screen; }
 .kit-shot { position: relative; z-index: 1; display: block; width: 100%; height: auto; filter: drop-shadow(0 26px 38px rgba(12, 6, 4, 0.48)); }
 .preorder-copy { max-width: 620px; }
 .preorder-copy h2 { margin-bottom: 1.5rem; }
