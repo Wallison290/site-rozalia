@@ -6,13 +6,14 @@ IDENTIDADE VISUAL APLICADA
 - Textura horizontal oficial recortada diretamente da imagem de referência enviada, sem aproximação ou substituição.
 - A mesma textura percorre todo o site: fundos claros, áreas verdes e terrosas, páginas abertas, capa, fotografias e elementos de interface.
 - Sistema completo de símbolos: Pétala-Livro, Janela de Contemplação, Monograma E.S., Moldura de Memória e Jardim Contemplativo.
-- Assinatura poética “há muita vida na vida” aplicada graficamente.
 - Fotografias contemplativas extraídas do material visual fornecido.
 - Courier Prime nos textos para reproduzir a linguagem datilografada da apresentação.
 - RL Horizon configurada como fonte preferencial dos títulos, com Fraunces como alternativa visual licenciada gratuitamente.
 - Entrada suave do conteúdo durante a rolagem, com respeito à preferência de movimento reduzido do visitante.
 - Abertura com a fotografia da floresta enviada e gradiente Terra Profunda (#411a13), finalizada por uma faixa Areia Suave (#e0d7c6).
-- Páginas do mockup em Verde Permanência (#142819), divisórias da quarta seção restritas aos textos e assinatura poética com fundo transparente.
+- Mockups fotográficos oficiais da obra: capa fechada na abertura, páginas internas na experiência de leitura e o kit completo na edição especial.
+- Na abertura, o mockup da capa abre nas páginas internas ao passar o mouse (e ao toque, em aparelhos sem cursor).
+- Sem setas ou sinais direcionais em botões e links, para um acabamento mais sóbrio e editorial.
 
 FONTE RL HORIZON
 A RL Horizon é uma fonte comercial disponível no Adobe Fonts. Para utilizá-la exatamente no site, crie um projeto Web no Adobe Fonts e substitua o comentário "SEU-KIT" dentro do <head> do index.html pelo link fornecido pela Adobe. Sem esse kit, o site carrega automaticamente a Fraunces, escolhida como aproximação editorial.
@@ -25,13 +26,14 @@ COMO ABRIR
 Mantenha index.html e styles.css na mesma pasta. Abra index.html no navegador.
 Para publicar, envie os dois arquivos para a mesma pasta no servidor.
 
-IMAGENS NECESSÁRIAS ANTES DA PUBLICAÇÃO
-1. Capa final do livro — frontal, sem mockup, JPG ou WebP, mínimo de 1200 px de altura.
-2. Foto profissional de Rozália — retrato vertical, fundo neutro ou natureza suave, mínimo de 1600 × 2000 px.
-3. Duas páginas internas do livro — composição aberta, mínimo de 1800 × 1200 px.
-4. Imagem social — capa do livro com título legível, exatamente 1200 × 630 px.
+MOCKUPS APLICADOS
+- assets/livro-cabecalho.png — capa fechada, usada na abertura.
+- assets/livro-aberto.png — páginas internas, usadas no hover da abertura e na seção de experiência de leitura.
+- assets/kit-livro.png — kit completo, usado na edição especial.
+Os três arquivos foram recortados nas bordas transparentes e redimensionados para uso na web.
 
-O código atual usa um mockup estilizado da capa e um espaço reservado para a fotografia da autora. Isso mantém o site funcional até os arquivos finais serem recebidos.
+AINDA PENDENTE
+1. Imagem social — capa do livro com título legível, exatamente 1200 × 630 px (og:image).
 
 SEO PRONTO
 Title: ENTREVIVER // PERMANECER | Rozália Del Gáudio
@@ -39,8 +41,8 @@ Description: Conheça ENTREVIVER // PERMANECER, primeira obra de Rozália Del G�
 Open Graph e dados estruturados de Pessoa, Livro e negócio incluídos no <head>.
 
 REVISÃO ANTES DE PUBLICAR
-1. Substituir o mockup pela capa final e inserir a fotografia profissional da autora.
-2. Confirmar valor, pagamento, frete, prazo da pré-venda e previsão de envio.
+1. Confirmar as datas dos quatro lançamentos na seção Edição especial — apenas locais e horários foram informados.
+2. Confirmar frete, prazo da pré-venda e previsão de envio. O valor aplicado é R$ 127,00 (Livro + Kit Exclusivo).
 3. Confirmar se o número 55 87 98869-3940 também aceita ligações.
 4. Trocar o ano do rodapé se necessário e inserir a URL definitiva nos dados estruturados.
 5. Testar WhatsApp, telefone e e-mail em um celular real e adicionar GA4 ou Plausible no local comentado.
