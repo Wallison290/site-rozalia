@@ -131,12 +131,32 @@ h2 { font-size: clamp(2.2rem, 4.8vw, 3.8rem); font-weight: 500; }
   position: relative;
   color: var(--color-bg);
   background-color: var(--color-primary);
-  background-image:
-    linear-gradient(90deg, rgba(20, 40, 25, 0.94) 0%, rgba(20, 40, 25, 0.78) 44%, rgba(20, 40, 25, 0.42) 100%),
-    url("assets/capa-rozalia.jpg");
-  background-position: center, center;
+  background-image: url("assets/capa-rozalia.jpg");
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+/* Vídeo de fundo da abertura, sem som e em repetição */
+.hero-video {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  pointer-events: none;
+}
+
+/* Véu Terra Profunda que mantém a leitura do título sobre o vídeo */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-image: linear-gradient(90deg, rgba(20, 40, 25, 0.94) 0%, rgba(20, 40, 25, 0.78) 44%, rgba(20, 40, 25, 0.42) 100%);
 }
 
 .hero::after {
@@ -151,7 +171,7 @@ h2 { font-size: clamp(2.2rem, 4.8vw, 3.8rem); font-weight: 500; }
   background-size: var(--texture-size);
 }
 
-.hero-grid { display: grid; gap: 4rem; align-items: center; }
+.hero-grid { position: relative; z-index: 2; display: grid; gap: 4rem; align-items: center; }
 .hero-copy { position: relative; z-index: 2; }
 .hero h1 { max-width: 760px; margin-bottom: 1.5rem; }
 .hero h1::after {
@@ -425,4 +445,6 @@ h2 { font-size: clamp(2.2rem, 4.8vw, 3.8rem); font-weight: 500; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
   .has-js .reveal { opacity: 1; transform: none; }
+  /* Quem pede menos movimento fica com a fotografia da abertura */
+  .hero-video { display: none; }
 }
