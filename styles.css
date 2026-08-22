@@ -133,7 +133,7 @@ h2 { font-size: clamp(2.2rem, 4.8vw, 3.8rem); font-weight: 500; }
   background-color: var(--color-primary);
   background-image:
     linear-gradient(90deg, rgba(20, 40, 25, 0.94) 0%, rgba(20, 40, 25, 0.78) 44%, rgba(20, 40, 25, 0.42) 100%),
-    url("assets/hero-floresta-rozalia.webp");
+    url("assets/capa-rozalia.jpg");
   background-position: center, center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -308,32 +308,33 @@ h2 { font-size: clamp(2.2rem, 4.8vw, 3.8rem); font-weight: 500; }
 .preorder { background-color: var(--color-accent); background-image: url("assets/icones-pagina-edição-especial.png"), var(--texture-horizontal); background-repeat: repeat, repeat; background-size: 560px auto, var(--texture-size); background-blend-mode: soft-light, multiply; color: var(--color-bg); }
 .preorder-grid { display: grid; gap: 4.5rem; align-items: center; }
 .preorder-visual { position: relative; }
-.preorder-monogram { position: absolute; width: min(72%, 340px); right: -22%; top: 50%; opacity: 0.18; transform: translateY(-50%); mix-blend-mode: screen; }
-.kit-shot { position: relative; z-index: 1; display: block; width: min(100%, 540px); height: auto; margin-inline: auto; filter: drop-shadow(0 24px 32px rgba(12, 6, 4, 0.42)); }
+.preorder-monogram { position: absolute; width: min(62%, 300px); right: -14%; top: 46%; opacity: 0.16; transform: translateY(-50%); mix-blend-mode: screen; }
+.kit-shot { position: relative; z-index: 1; display: block; width: 100%; height: auto; filter: drop-shadow(0 26px 38px rgba(12, 6, 4, 0.48)); }
 .preorder-copy { max-width: 620px; }
 .preorder-copy h2 { margin-bottom: 1.5rem; }
 .preorder-lead { font-size: 1.1rem; }
-.offer-details { margin: 2.5rem 0 0; border-top: 1px solid rgba(224,215,198,0.34); }
-.offer-details div { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 1rem; padding: 0.9rem 0; border-bottom: 1px solid rgba(224,215,198,0.34); }
-.offer-details dt { opacity: 0.68; }
-.offer-details dd { margin: 0; font-weight: 500; }
 
+/* Preço junto ao mockup */
 .preorder-price {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.4rem 1rem;
-  margin: 1.75rem 0 0;
-  font-size: 0.92rem;
-  letter-spacing: 0.04em;
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin: -1.25rem 0 0;
+  padding: 1.05rem 1.7rem;
+  background-color: rgba(24, 10, 6, 0.72);
+  border: 1px solid rgba(224, 215, 198, 0.34);
 }
-.preorder-price strong { font-family: var(--font-display); font-size: clamp(1.7rem, 3.4vw, 2.35rem); font-weight: 500; letter-spacing: -0.02em; line-height: 1; }
+.preorder-price__label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.72; }
+.preorder-price__value { font-family: var(--font-display); font-size: clamp(1.9rem, 3.6vw, 2.7rem); font-weight: 500; letter-spacing: -0.025em; line-height: 1; }
 
-.launch-agenda { margin: 2rem 0 2.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(224,215,198,0.34); }
+.launch-agenda { margin: 0 0 2.5rem; padding-top: 1.75rem; border-top: 1px solid rgba(224,215,198,0.34); }
 .launch-agenda__title { margin: 0 0 0.35rem; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.68; }
 .launch-agenda ul { margin: 0; padding: 0; list-style: none; }
-.launch-agenda li { display: grid; gap: 0.15rem 1.5rem; padding: 0.85rem 0; border-bottom: 1px solid rgba(224,215,198,0.22); font-size: 0.88rem; }
+.launch-agenda li { display: grid; gap: 0.15rem 1.25rem; padding: 0.85rem 0; border-bottom: 1px solid rgba(224,215,198,0.22); font-size: 0.88rem; }
 .launch-agenda li:last-child { border-bottom: 0; padding-bottom: 0; }
+.launch-agenda li time { font-weight: 700; letter-spacing: 0.04em; white-space: nowrap; }
 .launch-agenda li span { line-height: 1.45; }
 .launch-agenda li em { font-style: normal; opacity: 0.66; white-space: nowrap; }
 
@@ -385,7 +386,7 @@ h2 { font-size: clamp(2.2rem, 4.8vw, 3.8rem); font-weight: 500; }
 @media (min-width: 640px) {
   .container { width: min(100% - 4rem, var(--container)); }
   .hero-actions { flex-direction: row; align-items: center; }
-  .launch-agenda li { grid-template-columns: minmax(0, 1fr) auto; align-items: baseline; }
+  .launch-agenda li { grid-template-columns: auto minmax(0, 1fr) auto; align-items: baseline; }
   .launch-agenda li em { text-align: right; }
   .footer-grid { grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); }
   .footer-legal { grid-column: 1 / -1; }
@@ -410,7 +411,9 @@ h2 { font-size: clamp(2.2rem, 4.8vw, 3.8rem); font-weight: 500; }
   .reading-grid { grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr); gap: 7rem; }
   .origin-grid { grid-template-columns: minmax(300px, 0.68fr) minmax(0, 1.32fr); gap: 5rem; }
   .author-grid { grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: 7rem; }
-  .preorder-grid { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: 8rem; }
+  .preorder-grid { grid-template-columns: minmax(0, 1.14fr) minmax(0, 1fr); gap: 4.5rem; }
+  .kit-shot { width: min(112%, 700px); margin-left: -8%; }
+  .preorder-price { position: absolute; right: 0; bottom: 0; margin: 0; }
   .faq-grid { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 8rem; }
 }
 
