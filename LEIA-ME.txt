@@ -35,12 +35,6 @@ Os três arquivos foram recortados nas bordas transparentes e redimensionados pa
 
 AINDA PENDENTE
 1. Imagem social — capa do livro com título legível, exatamente 1200 × 630 px (og:image).
-2. Novo número de WhatsApp. O número antigo foi removido de todo o site. Enquanto
-   não houver um novo, os botões de conversão abrem o e-mail rozalia@inspiria3.com.
-   Para religar o WhatsApp, abra o index.html, procure o bloco comentado
-   "NOVO NÚMERO DE WHATSAPP" no final do arquivo e preencha a constante:
-       const WHATSAPP = '5511999999999';   // só dígitos: DDI + DDD + número
-   Todos os botões voltam a abrir o WhatsApp com a mensagem e a campanha corretas.
 
 ÍCONE DO SITE (FAVICON)
 Gerado a partir de assets/mockup-hero.png: a capa do livro centralizada sobre o
@@ -65,11 +59,10 @@ Os dois valores aparecem na seção Edição especial, no FAQ e nos dados estrut
 CONTATOS
 - Instagram: @eh_sobreviver
 - E-mail: rozalia@inspiria3.com
-- Telefone e WhatsApp foram retirados da seção de contatos e do rodapé.
+- WhatsApp: (19) 99831-5334
 
 REVISÃO ANTES DE PUBLICAR
 1. Confirmar as datas dos quatro lançamentos na seção Edição especial — apenas locais e horários foram informados.
 2. Confirmar frete, prazo da pré-venda e previsão de envio.
-3. Informar o novo número de WhatsApp (ver AINDA PENDENTE).
-4. Trocar o ano do rodapé se necessário e inserir a URL definitiva nos dados estruturados.
-5. Testar o e-mail em um celular real e adicionar GA4 ou Plausible no local comentado.
+3. Trocar o ano do rodapé se necessário e inserir a URL definitiva nos dados estruturados.
+4. Testar o e-mail e o WhatsApp em um celular real e adicionar GA4 ou Plausible no local comentado.
