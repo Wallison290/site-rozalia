@@ -27,22 +27,40 @@ Mantenha index.html e styles.css na mesma pasta. Abra index.html no navegador.
 Para publicar, envie os dois arquivos para a mesma pasta no servidor.
 
 MOCKUPS APLICADOS
-- assets/livro-cabecalho.png — capa fechada, usada na abertura.
+- assets/mockup-hero.png — capa fechada, usada na abertura.
 - assets/livro-aberto.png — páginas internas, usadas no hover da abertura e na seção de experiência de leitura.
 - assets/kit-livro.png — kit completo, usado na edição especial.
 Os três arquivos foram recortados nas bordas transparentes e redimensionados para uso na web.
+- assets/livro-cabecalho.png continua na pasta, mas não é mais usado no site.
 
 AINDA PENDENTE
 1. Imagem social — capa do livro com título legível, exatamente 1200 × 630 px (og:image).
+2. Novo número de WhatsApp. O número antigo foi removido de todo o site. Enquanto
+   não houver um novo, os botões de conversão abrem o e-mail rozalia@inspiria3.com.
+   Para religar o WhatsApp, abra o index.html, procure o bloco comentado
+   "NOVO NÚMERO DE WHATSAPP" no final do arquivo e preencha a constante:
+       const WHATSAPP = '5511999999999';   // só dígitos: DDI + DDD + número
+   Todos os botões voltam a abrir o WhatsApp com a mensagem e a campanha corretas.
 
 SEO PRONTO
 Title: ENTREVIVER // PERMANECER | Rozália Del Gáudio
 Description: Conheça ENTREVIVER // PERMANECER, primeira obra de Rozália Del Gáudio. Uma leitura sobre presença, esperança, espiritualidade e sentido.
 Open Graph e dados estruturados de Pessoa, Livro e negócio incluídos no <head>.
 
+PREÇOS APLICADOS
+- Kit exclusivo: Livro, Baralho, Marcador, numa caixa personalizada para uma
+  experiência completa — R$ 339,00
+- Livro + Marcador — R$ 139,00
+Os dois valores aparecem na seção Edição especial, no FAQ e nos dados estruturados.
+
+CONTATOS
+- Instagram: @eh_sobreviver
+- E-mail: rozalia@inspiria3.com
+- Telefone e WhatsApp foram retirados da seção de contatos e do rodapé.
+
 REVISÃO ANTES DE PUBLICAR
 1. Confirmar as datas dos quatro lançamentos na seção Edição especial — apenas locais e horários foram informados.
-2. Confirmar frete, prazo da pré-venda e previsão de envio. O valor aplicado é R$ 127,00 (Livro + Kit Exclusivo).
-3. Confirmar se o número 55 87 98869-3940 também aceita ligações.
+2. Confirmar frete, prazo da pré-venda e previsão de envio.
+3. Informar o novo número de WhatsApp (ver AINDA PENDENTE).
 4. Trocar o ano do rodapé se necessário e inserir a URL definitiva nos dados estruturados.
-5. Testar WhatsApp, telefone e e-mail em um celular real e adicionar GA4 ou Plausible no local comentado.
+5. Testar o e-mail em um celular real e adicionar GA4 ou Plausible no local comentado.

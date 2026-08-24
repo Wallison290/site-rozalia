@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="image" href="assets/capa-rozalia.jpg" fetchpriority="high">
-  <link rel="preload" as="image" href="assets/livro-cabecalho.png" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/mockup-hero.png" fetchpriority="high">
   <!-- A identidade usa RL Horizon. Para ativar a fonte licenciada, insira aqui o link do projeto Adobe Fonts. -->
   <!-- <link rel="stylesheet" href="https://use.typekit.net/SEU-KIT.css"> -->
   <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&amp;family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&amp;display=swap" rel="stylesheet">
@@ -37,9 +37,8 @@
         "@id": "#autora",
         "name": "Rozália Del Gáudio",
         "jobTitle": "Autora",
-        "email": "contatowallisoncarvalho@gmail.com",
-        "telephone": "+55 87 98869-3940",
-        "sameAs": ["https://www.instagram.com/eh_sobrevive"]
+        "email": "rozalia@inspiria3.com",
+        "sameAs": ["https://www.instagram.com/eh_sobreviver"]
       },
       {
         "@type": "Book",
@@ -48,23 +47,31 @@
         "author": { "@id": "#autora" },
         "inLanguage": "pt-BR",
         "description": "Uma obra de leitura não linear sobre presença, espiritualidade, esperança, gratidão, contemplação e afeto.",
-        "offers": {
-          "@type": "Offer",
-          "availability": "https://schema.org/PreOrder",
-          "price": "127.00",
-          "priceCurrency": "BRL",
-          "description": "Livro + Kit Exclusivo"
-        }
+        "offers": [
+          {
+            "@type": "Offer",
+            "availability": "https://schema.org/PreOrder",
+            "price": "339.00",
+            "priceCurrency": "BRL",
+            "description": "Kit exclusivo: Livro, Baralho, Marcador, numa caixa personalizada para uma experiência completa"
+          },
+          {
+            "@type": "Offer",
+            "availability": "https://schema.org/PreOrder",
+            "price": "139.00",
+            "priceCurrency": "BRL",
+            "description": "Livro + Marcador"
+          }
+        ]
       },
       {
         "@type": "LocalBusiness",
         "@id": "#negocio",
         "name": "Rozália Del Gáudio",
         "description": "Autora e venda direta de livro autoral.",
-        "email": "contatowallisoncarvalho@gmail.com",
-        "telephone": "+55 87 98869-3940",
+        "email": "rozalia@inspiria3.com",
         "areaServed": "BR",
-        "sameAs": ["https://www.instagram.com/eh_sobrevive"],
+        "sameAs": ["https://www.instagram.com/eh_sobreviver"],
         "founder": { "@id": "#autora" }
       }
     ]
@@ -97,17 +104,17 @@
       </video>
       <div class="container hero-grid">
         <div class="hero-copy reveal">
-          <p class="eyebrow">Primeira obra de Rozália Del Gáudio</p>
+          <p class="eyebrow">Primeira obra literária de Rozália Del Gáudio</p>
           <h1 id="hero-title">Permaneça inteiro durante as travessias.</h1>
           <p class="hero-subtitle">Um convite para permanecer presente. Um livro sobre esperança, silêncio e aquilo que sustenta a vida quando tudo desacelera.</p>
           <div class="hero-actions">
-            <a class="button button--primary" data-event="cta_whatsapp_hero" target="_blank" rel="noopener noreferrer" href="https://wa.me/5587988693940?text=Vim%20pelo%20site%20e%20quero%20garantir%20meu%20exemplar%20de%20ENTREVIVER%20%2F%2F%20PERMANECER.%20Pode%20me%20orientar%20sobre%20a%20pr%C3%A9-venda%3F&amp;utm_source=site&amp;utm_medium=botao&amp;utm_campaign=hero">Quero meu exemplar</a>
+            <a class="button button--primary" data-event="cta_whatsapp_hero" href="mailto:rozalia@inspiria3.com?subject=Interesse%20no%20livro%20ENTREVIVER%20%2F%2F%20PERMANECER&amp;body=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20pr%C3%A9-venda." data-cta-text="Vim pelo site e quero garantir meu exemplar de ENTREVIVER // PERMANECER. Pode me orientar sobre a pré-venda?" data-cta-campaign="hero">Quero meu exemplar</a>
             <span class="button-note">Edição especial de pré-venda</span>
           </div>
         </div>
         <div class="hero-visual reveal reveal--delay">
           <div class="book-stage book-stage--hero" role="img" aria-label="Capa de ENTREVIVER // PERMANECER; ao passar o mouse, o livro se abre em suas páginas internas">
-            <img class="book-shot book-shot--closed" src="assets/livro-cabecalho.png" alt="" width="627" height="1231" fetchpriority="high">
+            <img class="book-shot book-shot--closed" src="assets/mockup-hero.png" alt="" width="720" height="1300" fetchpriority="high">
             <img class="book-shot book-shot--open" src="assets/livro-aberto.png" alt="" width="1113" height="840">
           </div>
           <span class="book-stage__hint" aria-hidden="true">Veja por dentro</span>
@@ -146,7 +153,7 @@
             <li><span>03</span> Fragmentos de memória, afeto e contemplação</li>
             <li><span>04</span> Uma leitura que respeita o seu tempo. Leve, profunda e não linear.</li>
           </ul>
-          <a class="text-link" data-event="cta_whatsapp_experiencia" target="_blank" rel="noopener noreferrer" href="https://wa.me/5587988693940?text=Vim%20pelo%20site%20e%20me%20identifiquei%20com%20a%20proposta%20do%20livro.%20Quero%20saber%20como%20garantir%20meu%20exemplar.&amp;utm_source=site&amp;utm_medium=botao&amp;utm_campaign=experiencia_leitura">Quero viver essa experiência</a>
+          <a class="text-link" data-event="cta_whatsapp_experiencia" href="mailto:rozalia@inspiria3.com?subject=Interesse%20no%20livro%20ENTREVIVER%20%2F%2F%20PERMANECER&amp;body=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20pr%C3%A9-venda." data-cta-text="Vim pelo site e me identifiquei com a proposta do livro. Quero saber como garantir meu exemplar." data-cta-campaign="experiencia_leitura">Quero viver essa experiência</a>
         </div>
       </div>
     </section>
@@ -181,7 +188,7 @@
           <p class="eyebrow">Como o livro nasceu</p>
           <h2 id="origin-title">Da travessia, um lugar de permanência.</h2>
           <p>Durante 414 dias, Rozália escreveu enquanto atravessava um tratamento oncológico. Entre fotografias, memórias e silêncios, nasceu um livro que fala menos sobre a doença e mais sobre aquilo que permanece quando tudo muda.</p>
-          <p>A experiência está na origem da obra, mas não limita sua mensagem. O livro fala sobre aquilo que há de mais humano em todos nós: presença, esperança, gratidão e sentido.</p>
+          <p>A experiência está na origem da obra, mas não limita sua mensagem. O livro fala sobre aquilo que há de mais humano em todos nós: presença, afeto, gratidão e espiritualidade.</p>
           <a class="text-link text-link--light" href="#pre-venda">Conhecer a edição especial</a>
         </div>
       </div>
@@ -209,10 +216,17 @@
         <div class="preorder-visual reveal">
           <img class="preorder-monogram" src="assets/simbolo-monograma-es.webp" alt="" aria-hidden="true" loading="lazy">
           <img class="kit-shot" src="assets/kit-livro.png" alt="Kit exclusivo de ENTREVIVER // PERMANECER: caixa em papel kraft, o livro, o caderno sobreviver, cartões fotográficos e um novelo de linha" width="1275" height="900" loading="lazy">
-          <p class="preorder-price">
-            <span class="preorder-price__label">Livro + Kit Exclusivo</span>
-            <strong class="preorder-price__value">R$ 127,00</strong>
-          </p>
+          <div class="preorder-price">
+            <div class="preorder-price__item">
+              <span class="preorder-price__label">Kit exclusivo</span>
+              <span class="preorder-price__desc">Livro, Baralho, Marcador, numa caixa personalizada para uma experiência completa</span>
+              <strong class="preorder-price__value">R$ 339,00</strong>
+            </div>
+            <div class="preorder-price__item">
+              <span class="preorder-price__label">Livro + Marcador</span>
+              <strong class="preorder-price__value">R$ 139,00</strong>
+            </div>
+          </div>
         </div>
         <div class="preorder-copy reveal reveal--delay">
           <p class="eyebrow">Edição especial</p>
@@ -227,8 +241,8 @@
               <li><time datetime="2026-10-20">20/10</time><span>Centro Cultural Unimed-BH Minas — Belo Horizonte</span><em>das 19h às 21h</em></li>
             </ul>
           </div>
-          <a class="button button--primary button--large" data-event="cta_whatsapp_pre_venda" target="_blank" rel="noopener noreferrer" href="https://wa.me/5587988693940?text=Vim%20pelo%20site%20e%20quero%20comprar%20meu%20exemplar%20na%20pr%C3%A9-venda.%20Como%20fa%C3%A7o%20para%20finalizar%3F&amp;utm_source=site&amp;utm_medium=botao&amp;utm_campaign=pre_venda">Quero meu exemplar</a>
-          <a class="text-link preorder-question" target="_blank" rel="noopener noreferrer" href="https://wa.me/5587988693940?text=Vim%20pelo%20site%20e%20ainda%20tenho%20uma%20d%C3%BAvida%20sobre%20a%20pr%C3%A9-venda%20de%20ENTREVIVER%20%2F%2F%20PERMANECER.&amp;utm_source=site&amp;utm_medium=botao&amp;utm_campaign=faq">Prefere tirar uma dúvida primeiro?</a>
+          <a class="button button--primary button--large" data-event="cta_whatsapp_pre_venda" href="mailto:rozalia@inspiria3.com?subject=Interesse%20no%20livro%20ENTREVIVER%20%2F%2F%20PERMANECER&amp;body=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20pr%C3%A9-venda." data-cta-text="Vim pelo site e quero comprar meu exemplar na pré-venda. Como faço para finalizar?" data-cta-campaign="pre_venda">Quero meu exemplar</a>
+          <a class="text-link preorder-question" href="mailto:rozalia@inspiria3.com?subject=Interesse%20no%20livro%20ENTREVIVER%20%2F%2F%20PERMANECER&amp;body=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20pr%C3%A9-venda." data-cta-text="Vim pelo site e ainda tenho uma dúvida sobre a pré-venda de ENTREVIVER // PERMANECER." data-cta-campaign="faq">Prefere tirar uma dúvida primeiro?</a>
         </div>
       </div>
     </section>
@@ -243,11 +257,11 @@
         </div>
         <div class="faq-list reveal reveal--delay">
           <details><summary>Como funciona a pré-venda?</summary><p>O atendimento confirma as condições atualizadas, registra seu pedido e orienta sobre as próximas etapas.</p></details>
-          <details><summary>Qual é o valor e a forma de pagamento?</summary><p>O Livro + Kit Exclusivo sai por R$ 127,00. As formas de pagamento são confirmadas diretamente pelo WhatsApp antes da finalização do pedido.</p></details>
+          <details><summary>Qual é o valor e a forma de pagamento?</summary><p>Kit exclusivo: Livro, Baralho, Marcador, numa caixa personalizada para uma experiência completa: R$ 339,00. Livro + Marcador: R$ 139,00. As formas de pagamento são confirmadas diretamente pelo WhatsApp antes da finalização do pedido.</p></details>
           <details><summary>Como será feita a entrega?</summary><p>As opções de envio, retirada e eventuais custos de frete são confirmados conforme sua localização.</p></details>
           <details><summary>Preciso ler o livro em sequência?</summary><p>Não. Você pode abrir em qualquer página e permanecer em uma fotografia, frase ou reflexão pelo tempo que precisar.</p></details>
-          <details><summary>O livro é sobre o tratamento oncológico?</summary><p>O tratamento faz parte de sua origem, mas a obra fala principalmente sobre presença, esperança, afeto e sentido.</p></details>
-          <a class="button button--primary faq-cta" data-event="cta_whatsapp_faq" target="_blank" rel="noopener noreferrer" href="https://wa.me/5587988693940?text=Vim%20pelo%20site%20e%20ainda%20tenho%20uma%20d%C3%BAvida%20sobre%20a%20pr%C3%A9-venda%20de%20ENTREVIVER%20%2F%2F%20PERMANECER.&amp;utm_source=site&amp;utm_medium=botao&amp;utm_campaign=faq">Quero meu exemplar</a>
+          <details><summary>O livro é sobre o tratamento oncológico?</summary><p>O tratamento faz parte de sua origem, mas a obra fala principalmente sobre presença, afeto, gratidão e espiritualidade.</p></details>
+          <a class="button button--primary faq-cta" data-event="cta_whatsapp_faq" href="mailto:rozalia@inspiria3.com?subject=Interesse%20no%20livro%20ENTREVIVER%20%2F%2F%20PERMANECER&amp;body=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20pr%C3%A9-venda." data-cta-text="Vim pelo site e ainda tenho uma dúvida sobre a pré-venda de ENTREVIVER // PERMANECER." data-cta-campaign="faq">Quero meu exemplar</a>
         </div>
       </div>
     </section>
@@ -259,7 +273,7 @@
         <p>Escolha uma página.</p><p>Uma fotografia. Uma frase.</p><strong>E permaneça o tempo que precisar.</strong>
         <div class="closing-cta">
           <p class="closing-cta__line">Seu exemplar espera por você.</p>
-          <a class="button button--primary button--large" data-event="cta_whatsapp_fechamento" target="_blank" rel="noopener noreferrer" href="https://wa.me/5587988693940?text=Vim%20pelo%20site%20e%20quero%20garantir%20meu%20exemplar%20de%20ENTREVIVER%20%2F%2F%20PERMANECER.%20Como%20fa%C3%A7o%20para%20finalizar%3F&amp;utm_source=site&amp;utm_medium=botao&amp;utm_campaign=fechamento">Quero meu exemplar</a>
+          <a class="button button--primary button--large" data-event="cta_whatsapp_fechamento" href="mailto:rozalia@inspiria3.com?subject=Interesse%20no%20livro%20ENTREVIVER%20%2F%2F%20PERMANECER&amp;body=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20pr%C3%A9-venda." data-cta-text="Vim pelo site e quero garantir meu exemplar de ENTREVIVER // PERMANECER. Como faço para finalizar?" data-cta-campaign="fechamento">Quero meu exemplar</a>
         </div>
       </div>
     </section>
@@ -270,16 +284,37 @@
     <div class="container footer-grid">
       <div><a class="wordmark wordmark--footer" href="#inicio">Rozália <span>Del Gáudio</span></a><p>Autora de ENTREVIVER // PERMANECER</p></div>
       <div class="footer-links" aria-label="Contatos">
-        <a target="_blank" rel="noopener noreferrer" href="https://wa.me/5587988693940?text=Vim%20pelo%20site%20e%20quero%20garantir%20meu%20exemplar%20de%20ENTREVIVER%20%2F%2F%20PERMANECER.%20Pode%20me%20orientar%20sobre%20a%20pr%C3%A9-venda%3F">WhatsApp <span>87 98869-3940</span></a>
-        <a href="tel:+5587988693940">Telefone <span>Ligar agora</span></a>
-        <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/eh_sobrevive">Instagram <span>@eh_sobrevive</span></a>
-        <a href="mailto:contatowallisoncarvalho@gmail.com?subject=Interesse%20no%20livro%20ENTREVIVER%20%2F%2F%20PERMANECER&amp;body=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20pr%C3%A9-venda.">E-mail <span>Enviar mensagem</span></a>
+        <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/eh_sobreviver">Instagram <span>@eh_sobreviver</span></a>
+        <a href="mailto:rozalia@inspiria3.com?subject=Interesse%20no%20livro%20ENTREVIVER%20%2F%2F%20PERMANECER&amp;body=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20pr%C3%A9-venda.">E-mail <span>rozalia@inspiria3.com</span></a>
       </div>
       <div class="footer-legal"><p>© 2026 Rozália Del Gáudio.</p><p>Todos os direitos reservados.</p></div>
     </div>
   </footer>
 
-  <a class="mobile-buy" data-event="cta_whatsapp_mobile_fixo" target="_blank" rel="noopener noreferrer" href="https://wa.me/5587988693940?text=Vim%20pelo%20site%20e%20quero%20comprar%20meu%20exemplar%20na%20pr%C3%A9-venda.%20Como%20fa%C3%A7o%20para%20finalizar%3F&amp;utm_source=site&amp;utm_medium=botao&amp;utm_campaign=pre_venda">Quero meu exemplar</a>
+  <a class="mobile-buy" data-event="cta_whatsapp_mobile_fixo" href="mailto:rozalia@inspiria3.com?subject=Interesse%20no%20livro%20ENTREVIVER%20%2F%2F%20PERMANECER&amp;body=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20pr%C3%A9-venda." data-cta-text="Vim pelo site e quero comprar meu exemplar na pré-venda. Como faço para finalizar?" data-cta-campaign="pre_venda">Quero meu exemplar</a>
+
+  <!-- Destino dos botões de conversão -->
+  <script>
+    /* NOVO NÚMERO DE WHATSAPP
+       Assim que houver um número, preencha a constante abaixo apenas com dígitos
+       (DDI + DDD + número, ex.: '5511999999999') e todos os botões voltam a abrir
+       o WhatsApp com a mensagem certa. Vazia, os botões abrem o e-mail. */
+    const WHATSAPP = '';
+
+    if (WHATSAPP) {
+      document.querySelectorAll('[data-cta-text]').forEach((cta) => {
+        const params = new URLSearchParams({
+          text: cta.dataset.ctaText,
+          utm_source: 'site',
+          utm_medium: 'botao',
+          utm_campaign: cta.dataset.ctaCampaign || 'site'
+        });
+        cta.href = 'https://wa.me/' + WHATSAPP + '?' + params.toString();
+        cta.target = '_blank';
+        cta.rel = 'noopener noreferrer';
+      });
+    }
+  </script>
 
   <!-- Entrada suave do conteúdo durante a rolagem -->
   <script>
