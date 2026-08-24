@@ -233,6 +233,8 @@ h2 { font-size: clamp(2.2rem, 4.8vw, 3.8rem); font-weight: 500; }
   filter: drop-shadow(16px 20px 26px rgba(8, 18, 10, 0.45));
   transition: opacity 560ms ease, transform 560ms ease;
 }
+/* A capa fechada aparece 10% menor que o palco */
+.book-shot--closed { width: 90%; height: 90%; margin: auto; }
 .book-shot--open { opacity: 0; transform: scale(0.96); }
 
 /* No toque, um clique abre o livro e outro fecha */
