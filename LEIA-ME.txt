@@ -42,6 +42,15 @@ AINDA PENDENTE
        const WHATSAPP = '5511999999999';   // só dígitos: DDI + DDD + número
    Todos os botões voltam a abrir o WhatsApp com a mensagem e a campanha corretas.
 
+ÍCONE DO SITE (FAVICON)
+Gerado a partir de assets/mockup-hero.png: a capa do livro centralizada sobre o
+Verde Permanência (#142819), o mesmo do rodapé.
+- favicon.ico na raiz — 16, 32 e 48 px, para as abas e para o Google.
+- assets/icone-96.png, icone-192.png, icone-512.png — telas de alta densidade.
+- assets/apple-touch-icon.png — 180 px, atalho na tela de início do iPhone.
+Para trocar, basta regerar os arquivos mantendo os mesmos nomes e tamanhos.
+O Google pode levar alguns dias para atualizar o ícone nos resultados de busca.
+
 SEO PRONTO
 Title: ENTREVIVER // PERMANECER | Rozália Del Gáudio
 Description: Conheça ENTREVIVER // PERMANECER, primeira obra de Rozália Del Gáudio. Uma leitura sobre presença, esperança, espiritualidade e sentido.
