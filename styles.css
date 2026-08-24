@@ -235,18 +235,19 @@ h2 { font-size: clamp(2.2rem, 4.8vw, 3.8rem); font-weight: 500; }
 }
 /* A capa fechada aparece 10% menor que o palco */
 .book-shot--closed { width: 90%; height: 90%; margin: auto; }
-.book-shot--open { opacity: 0; transform: scale(0.96); }
+/* O livro aberto também aparece 10% menor que o palco */
+.book-shot--open { opacity: 0; transform: scale(0.86); }
 
 /* No toque, um clique abre o livro e outro fecha */
 .book-stage.is-open .book-shot--closed { opacity: 0; transform: scale(0.96); }
-.book-stage.is-open .book-shot--open { opacity: 1; transform: scale(1); }
+.book-stage.is-open .book-shot--open { opacity: 1; transform: scale(0.9); }
 
 /* Só onde existe cursor o livro abre ao passar o mouse */
 @media (hover: hover) {
   .book-stage:hover .book-shot--closed,
   .book-stage:focus-within .book-shot--closed { opacity: 0; transform: scale(0.96); }
   .book-stage:hover .book-shot--open,
-  .book-stage:focus-within .book-shot--open { opacity: 1; transform: scale(1); }
+  .book-stage:focus-within .book-shot--open { opacity: 1; transform: scale(0.9); }
 }
 
 .book-stage__hint {
@@ -373,7 +374,6 @@ h2 { font-size: clamp(2.2rem, 4.8vw, 3.8rem); font-weight: 500; }
 .launch-agenda li em { font-style: normal; opacity: 0.66; white-space: nowrap; }
 
 .preorder .button--primary { background: var(--color-bg); color: var(--color-primary); }
-.preorder-question { display: flex; width: fit-content; margin-top: 1.5rem; font-size: 0.83rem; }
 .faq-grid { display: grid; gap: 4rem; align-items: start; }
 .faq-heading { max-width: 480px; }
 .faq-heading h2 { margin-bottom: 1.5rem; }
