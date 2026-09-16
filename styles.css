@@ -316,7 +316,7 @@ h2 { font-size: clamp(2.2rem, 4.8vw, 3.8rem); font-weight: 500; }
 .origin-number { position: relative; padding-bottom: 2.5rem; border-bottom: var(--border); }
 .origin-number strong { display: block; color: var(--color-moss); font-family: var(--font-display); font-size: clamp(7rem, 24vw, 14rem); font-weight: 500; line-height: 0.76; letter-spacing: -0.07em; }
 .origin-number span { display: block; margin-top: 1.3rem; font-size: 2rem; color: var(--color-accent); }
-.origin-number p { max-width: 220px; margin: 1rem 0 0; font-size: 0.85rem; }
+.origin-number p { margin: 1rem 0 0; font-size: 0.85rem; white-space: nowrap; }
 .origin-photo { width: min(100%, 330px); aspect-ratio: 0.82; margin-top: 2.25rem; object-fit: cover; filter: saturate(0.72) contrast(1.03); border: var(--border); }
 .memory-frame { position: absolute; width: min(100%, 365px); left: -18px; bottom: -18px; opacity: 0.58; mix-blend-mode: multiply; pointer-events: none; }
 .origin-copy { width: 100%; max-width: none; display: flex; flex-direction: column; justify-content: center; height: 100%; }

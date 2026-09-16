@@ -62,7 +62,7 @@ CONTATOS
 - WhatsApp: (19) 99831-5334
 
 REVISÃO ANTES DE PUBLICAR
-1. Confirmar as datas dos quatro lançamentos na seção Edição especial — apenas locais e horários foram informados.
-2. Confirmar frete, prazo da pré-venda e previsão de envio.
+1. Confirmar as datas dos quatro encontros com a autora na seção Edição especial — apenas locais e horários foram informados.
+2. Confirmar frete e previsão de envio.
 3. Trocar o ano do rodapé se necessário e inserir a URL definitiva nos dados estruturados.
 4. Testar o e-mail e o WhatsApp em um celular real e adicionar GA4 ou Plausible no local comentado.
