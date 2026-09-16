@@ -309,7 +309,7 @@ h2 { font-size: clamp(2.2rem, 4.8vw, 3.8rem); font-weight: 500; }
 .section-heading h2 { margin: 0; }
 .audience-list { position: relative; z-index: 1; border-top: 1px solid rgba(224,215,198,0.32); }
 .audience-list p { margin: 0; padding: 1.3rem 0; border-bottom: 1px solid rgba(224,215,198,0.32); font-family: var(--font-display); font-size: clamp(1.2rem, 2.2vw, 1.65rem); font-weight: 500; }
-.audience-close { margin: 3rem 0 0 auto; max-width: 420px; text-align: right; opacity: 0.76; }
+.audience-close { margin: 3rem 0 0 auto; text-align: right; opacity: 0.76; white-space: nowrap; font-size: clamp(0.6rem, 2.9vw, 1rem); }
 
 .origin { border-bottom: var(--border); }
 .origin-grid { display: grid; gap: 4rem; align-items: stretch; }
