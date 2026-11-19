@@ -259,6 +259,9 @@ h2 { font-size: clamp(2.2rem, 4.8vw, 3.8rem); font-weight: 500; }
   font-size: 0.9rem;
   font-weight: 700;
   line-height: 1;
+  /* texto do botão sempre numa linha só; o botão não encolhe quando divide espaço com outro texto */
+  white-space: nowrap;
+  flex-shrink: 0;
   transition: transform 200ms ease, opacity 200ms ease;
 }
 .button:hover { transform: scale(1.02); opacity: 0.94; }
