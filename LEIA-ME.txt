@@ -9,7 +9,9 @@ IDENTIDADE VISUAL APLICADA
 - Fotografias contemplativas extraídas do material visual fornecido.
 - Courier Prime nos textos para reproduzir a linguagem datilografada da apresentação.
 - RL Horizon configurada como fonte preferencial dos títulos, com Fraunces como alternativa visual licenciada gratuitamente.
-- Entrada suave do conteúdo durante a rolagem, com respeito à preferência de movimento reduzido do visitante.
+- Animações de rolagem com GSAP + ScrollTrigger (cdnjs, versão 3.12.5): títulos sobem palavra por palavra,
+  textos e listas entram em sequência, fotos se revelam de baixo para cima, o 414 conta de 0 a 414 e os
+  símbolos flutuam devagar. Se o GSAP não carregar, o site aparece inteiro, sem animação.
 - Abertura com a fotografia da floresta enviada e gradiente Terra Profunda (#411a13), finalizada por uma faixa Areia Suave (#e0d7c6).
 - Mockups fotográficos oficiais da obra: capa fechada na abertura, páginas internas na experiência de leitura e o kit completo na edição especial.
 - Na abertura, o mockup da capa abre nas páginas internas ao passar o mouse (e ao toque, em aparelhos sem cursor).
@@ -50,11 +52,28 @@ Title: ENTREVIVER // PERMANECER | Rozália Del Gáudio
 Description: Conheça ENTREVIVER // PERMANECER, primeira obra de Rozália Del Gáudio. Uma leitura sobre presença, esperança, espiritualidade e sentido.
 Open Graph e dados estruturados de Pessoa, Livro e negócio incluídos no <head>.
 
-PREÇOS APLICADOS
-- Kit exclusivo: Livro, Baralho, Marcador, numa caixa personalizada para uma
-  experiência completa — R$ 339,00
-- Livro + Marcador — R$ 139,00
-Os dois valores aparecem na seção Edição especial, no FAQ e nos dados estruturados.
+PREÇOS E ONDE COMPRAR (ajustes de 19/11/2026)
+- Kit Luxo: Livro, Baralho, Marcador, numa caixa personalizada: R$ 339,00
+- Kit Essencial: Livro + Marcador: R$ 139,00
+Os kits são vendidos somente pela autora (botão "Quero meu kit" abre o WhatsApp).
+O livro avulso é vendido na Livraria Leitura, na Amazon e no Mercado Livre.
+
+LINKS DAS LOJAS (livro avulso)
+Todo botão de comprar o livro abre o modal "Escolha onde comprar" (#onde-comprar) com:
+- Livraria Leitura: https://leitura.com.br/produto/entreviver-permanecer-rozalia-del-gaudio-9786597595419
+- Amazon: https://a.co/d/00843OJn
+- Mercado Livre: https://meli.la/1fevQVW
+Os mesmos links aparecem na resposta "Como faço para comprar?" do FAQ.
+O botão "Quero meu kit" continua indo direto para o WhatsApp.
+
+LANÇAMENTOS
+Seção #eventos em gavetas: a seção trava na tela e, conforme a rolagem, a gaveta
+de um evento fecha e a do próximo abre, cada uma com carrossel infinito de fotos
+(assets/eventos, WebP 480 px de altura; 25 fotos por evento, Bienal só tem 9).
+Para trocar fotos: gerar o WebP com o mesmo nome na pasta assets/eventos.
+12/09 Bienal SP, 21/09 Galeria Magalu SP, 13/10 ReservArt Niterói,
+20/10 Unimed-BH, 22/10 Livraria Leitura Campinas.
+Originais em 01-clientes/rozalia/fotos-eventos (fora do repositório).
 
 CONTATOS
 - Instagram: @eh_sobreviver
@@ -62,7 +81,7 @@ CONTATOS
 - WhatsApp: (19) 99831-5334
 
 REVISÃO ANTES DE PUBLICAR
-1. Confirmar as datas dos quatro encontros com a autora na seção Edição especial — apenas locais e horários foram informados.
+1. Testar os três links do modal em um celular real.
 2. Confirmar frete e previsão de envio.
 3. Trocar o ano do rodapé se necessário e inserir a URL definitiva nos dados estruturados.
 4. Testar o e-mail e o WhatsApp em um celular real e adicionar GA4 ou Plausible no local comentado.

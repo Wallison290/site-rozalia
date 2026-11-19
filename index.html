@@ -34,6 +34,9 @@
   <!-- <link rel="stylesheet" href="https://use.typekit.net/SEU-KIT.css"> -->
   <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&amp;family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <!-- GSAP para as animações de rolagem (carrega antes do conteúdo para a abertura não piscar) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
   <!-- Dados estruturados -->
   <script type="application/ld+json">
@@ -61,13 +64,15 @@
             "availability": "https://schema.org/InStock",
             "price": "339.00",
             "priceCurrency": "BRL",
-            "description": "Kit exclusivo: Livro, Baralho, Marcador, numa caixa personalizada para uma experiência completa"
+            "name": "Kit Luxo",
+            "description": "Livro, Baralho, Marcador, numa caixa personalizada para uma experiência completa"
           },
           {
             "@type": "Offer",
             "availability": "https://schema.org/InStock",
             "price": "139.00",
             "priceCurrency": "BRL",
+            "name": "Kit Essencial",
             "description": "Livro + Marcador"
           }
         ]
@@ -100,7 +105,7 @@
         <a href="#origem">Origem</a>
         <a href="#autora">A autora</a>
       </nav>
-      <a class="header-cta" href="#comprar">Comprar o livro</a>
+      <a class="header-cta" href="#comprar" data-open-buy data-event="cta_menu">Comprar o livro</a>
     </div>
   </header>
 
@@ -116,8 +121,8 @@
           <h1 id="hero-title">Permaneça inteiro durante as travessias.</h1>
           <p class="hero-subtitle">Um convite para permanecer presente. Um livro sobre esperança, silêncio e aquilo que sustenta a vida quando tudo desacelera.</p>
           <div class="hero-actions">
-            <a class="button button--primary" data-event="cta_whatsapp_hero" href="mailto:rozalia@inspiria3.com?subject=Interesse%20no%20livro%20ENTREVIVER%20%2F%2F%20PERMANECER&amp;body=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20livro." data-cta-text="Vim pelo site e quero garantir meu exemplar de ENTREVIVER // PERMANECER. Pode me orientar sobre a compra?" data-cta-campaign="hero">Quero meu exemplar</a>
-            <span class="button-note">Edição especial disponível</span>
+            <a class="button button--primary" data-event="cta_hero" href="#comprar" data-open-buy>Quero meu exemplar</a>
+            <span class="button-note">Na Livraria Leitura, na Amazon e no Mercado Livre</span>
           </div>
         </div>
         <div class="hero-visual reveal reveal--delay">
@@ -132,10 +137,10 @@
 
     <!-- 2. Uma obra para ser sentida -->
     <section class="section statement" id="obra" aria-labelledby="statement-title">
-      <img class="symbol symbol--petal" src="assets/simbolo-rosa.png" alt="" aria-hidden="true">
+      <img class="symbol symbol--petal" src="assets/simbolo-rosa.webp" alt="" aria-hidden="true" width="800" height="499">
       <div class="container statement-grid reveal">
+        <p class="eyebrow statement-eyebrow">Uma obra para ser sentida</p>
         <div>
-          <p class="eyebrow">Uma obra para ser sentida</p>
           <h2 id="statement-title">Não é um livro sobre doença. <span>É um livro sobre presença.</span></h2>
         </div>
         <div class="statement-copy">
@@ -161,7 +166,10 @@
             <li><span>03</span> Fragmentos de memória, afeto e contemplação</li>
             <li><span>04</span> Uma leitura que respeita o seu tempo. Leve, profunda e não linear.</li>
           </ul>
-          <a class="text-link" data-event="cta_whatsapp_experiencia" href="mailto:rozalia@inspiria3.com?subject=Interesse%20no%20livro%20ENTREVIVER%20%2F%2F%20PERMANECER&amp;body=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20livro." data-cta-text="Vim pelo site e me identifiquei com a proposta do livro. Quero saber como garantir meu exemplar." data-cta-campaign="experiencia_leitura">Quero viver essa experiência</a>
+          <a class="text-link" data-event="cta_experiencia" href="#comprar" data-open-buy>Quero viver essa experiência</a>
+          <a class="platform-strip" data-event="faixa_lojas" href="#comprar" data-open-buy>
+            <span>Disponível na</span> <strong>Livraria Leitura</strong>, <strong>Amazon</strong> <span>e</span> <strong>Mercado Livre</strong>
+          </a>
         </div>
       </div>
     </section>
@@ -189,7 +197,7 @@
       <div class="container origin-grid">
         <div class="origin-number reveal">
           <strong>414</strong><span>dias</span><p>de presença em meio à mudança</p>
-          <img class="origin-photo" src="assets/foto-porta-rozalia.jpg" alt="Porta de madeira com um coração em relevo dourado" loading="lazy">
+          <img class="origin-photo" src="assets/foto-arco-rozalia.webp" alt="Arco de pedra com uma porta de madeira, atravessado pela luz do sol" width="820" height="1230" loading="lazy">
           <img class="memory-frame" src="assets/simbolo-moldura-memoria.webp" alt="" aria-hidden="true" loading="lazy">
         </div>
         <div class="origin-copy reveal reveal--delay">
@@ -206,7 +214,7 @@
     <section class="section author" id="autora" aria-labelledby="author-title">
       <div class="container author-grid">
         <div class="author-portrait reveal">
-          <img class="author-photo" src="assets/foto-rozalia.jpeg" alt="Fotografia de Rozália Del Gáudio" loading="lazy">
+          <img class="author-photo" src="assets/foto-rozalia-niteroi.webp" alt="Rozália Del Gáudio sorrindo, com ENTREVIVER // PERMANECER sobre a mesa, no lançamento em Niterói" width="1200" height="1800" loading="lazy">
         </div>
         <div class="author-copy reveal reveal--delay">
           <p class="eyebrow">Sobre a autora</p>
@@ -225,31 +233,380 @@
           <img class="preorder-monogram" src="assets/simbolo-monograma-es.webp" alt="" aria-hidden="true" loading="lazy">
           <img class="kit-shot" src="assets/kit-livro.png" alt="Kit exclusivo de ENTREVIVER // PERMANECER: caixa em papel kraft, o livro, o caderno sobreviver, cartões fotográficos e um novelo de linha" width="1275" height="900" loading="lazy">
           <div class="preorder-price">
+            <p class="preorder-price__note">Somente com a autora</p>
             <div class="preorder-price__item">
-              <span class="preorder-price__label">Kit exclusivo</span>
+              <span class="preorder-price__label">Kit Luxo</span>
               <span class="preorder-price__desc">Livro, Baralho, Marcador, numa caixa personalizada para uma experiência completa</span>
               <strong class="preorder-price__value">R$ 339,00</strong>
             </div>
             <div class="preorder-price__item">
-              <span class="preorder-price__label">Livro + Marcador</span>
+              <span class="preorder-price__label">Kit Essencial</span>
+              <span class="preorder-price__desc">Livro + Marcador</span>
               <strong class="preorder-price__value">R$ 139,00</strong>
             </div>
           </div>
         </div>
         <div class="preorder-copy reveal reveal--delay">
-          <p class="eyebrow">Edição especial</p>
+          <p class="eyebrow">Onde comprar</p>
           <h2 id="preorder-title">Leve esta obra para perto de você.</h2>
-          <p class="preorder-lead">A edição especial reúne o livro e os objetos criados para acompanhar a leitura — uma forma de receber esta história por inteiro.</p>
-          <div class="launch-agenda">
-            <p class="launch-agenda__title">Encontros com a autora</p>
-            <ul>
-              <li><time datetime="2026-09-21">21/09</time><span>Galeria Magalu — Conjunto Nacional, São Paulo</span><em>das 19h às 21h</em></li>
-              <li><time datetime="2026-10-13">13/10</time><span>ReservArt Galeria — Niterói</span><em>das 19h às 21h</em></li>
-              <li><time datetime="2026-10-20">20/10</time><span>Centro Cultural Unimed-BH Minas — Belo Horizonte</span><em>das 19h às 21h</em></li>
-              <li><time datetime="2026-10-22">22/10</time><span>Livraria Leitura — Galleria Shopping, Campinas - SP</span><em>das 18h às 21h</em></li>
-            </ul>
+          <p class="preorder-lead">Os kits Luxo e Essencial reúnem o livro e os objetos criados para acompanhar a leitura. Eles são vendidos somente pela autora.</p>
+
+          <div class="buy-options">
+            <div class="buy-option">
+              <p class="buy-option__title">Kits Luxo e Essencial</p>
+              <a class="button button--primary button--large" data-event="cta_whatsapp_kit" href="https://wa.me/5519998315334" data-cta-text="Vim pelo site e quero o kit de ENTREVIVER // PERMANECER. Pode me ajudar?" data-cta-campaign="kits">Quero meu kit</a>
+              <p class="buy-option__hint">Atendimento direto com a Rozália pelo WhatsApp</p>
+            </div>
+            <div class="buy-option">
+              <p class="buy-option__title">Só o livro</p>
+              <a class="button button--outline" data-event="cta_livro_comprar" href="#comprar" data-open-buy>Comprar o livro</a>
+              <p class="buy-option__hint">Livraria Leitura, Amazon ou Mercado Livre</p>
+            </div>
           </div>
-          <a class="button button--primary button--large" data-event="cta_whatsapp_pre_venda" href="mailto:rozalia@inspiria3.com?subject=Interesse%20no%20livro%20ENTREVIVER%20%2F%2F%20PERMANECER&amp;body=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20livro." data-cta-text="Vim pelo site e quero comprar meu exemplar de ENTREVIVER // PERMANECER. Como faço para finalizar?" data-cta-campaign="pre_venda">Quero meu exemplar</a>
+          <a class="events-banner" data-event="banner_eventos" href="#eventos">
+            <span class="events-banner__thumbs" aria-hidden="true">
+              <img src="assets/eventos/niteroi-09.webp" alt="" width="427" height="640" loading="lazy">
+              <img src="assets/eventos/belo-horizonte-03.webp" alt="" width="427" height="640" loading="lazy">
+              <img src="assets/eventos/campinas-09.webp" alt="" width="427" height="640" loading="lazy">
+            </span>
+            <span class="events-banner__text"><small>Fotos dos encontros</small>Veja como foram os eventos de lançamento</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7b. Como foram os lançamentos: gavetas que abrem uma por vez durante a rolagem -->
+    <section class="section events" id="eventos" aria-labelledby="events-title">
+      <div class="container events-heading reveal">
+        <p class="eyebrow">Lançamentos</p>
+        <h2 id="events-title">Como foram os encontros.</h2>
+        <p>Cinco encontros, muitos abraços e páginas autografadas. Um pouco do que ficou de cada noite.</p>
+      </div>
+      <div class="events-scroller" style="--count: 5">
+        <div class="events-sticky">
+          <div class="events-drawers">
+            <article class="drawer is-active" data-index="0">
+              <button class="drawer__head" type="button" aria-expanded="true">
+                <time datetime="2026-09-12">12/09</time><span class="drawer__place">Bienal Internacional do Livro, São Paulo</span>
+              </button>
+              <div class="drawer__body">
+                <div class="drawer__inner">
+                  <div class="marquee" style="--dur: 31s" role="group" aria-label="Fotos do lançamento na Bienal Internacional do Livro">
+                    <div class="marquee__track">
+                  <div class="marquee__group">
+                    <img src="assets/eventos/bienal-01.webp" alt="Lançamento na Bienal Internacional do Livro, foto 1 de 9" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/bienal-02.webp" alt="Lançamento na Bienal Internacional do Livro, foto 2 de 9" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/bienal-03.webp" alt="Lançamento na Bienal Internacional do Livro, foto 3 de 9" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/bienal-04.webp" alt="Lançamento na Bienal Internacional do Livro, foto 4 de 9" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/bienal-05.webp" alt="Lançamento na Bienal Internacional do Livro, foto 5 de 9" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/bienal-06.webp" alt="Lançamento na Bienal Internacional do Livro, foto 6 de 9" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/bienal-07.webp" alt="Lançamento na Bienal Internacional do Livro, foto 7 de 9" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/bienal-08.webp" alt="Lançamento na Bienal Internacional do Livro, foto 8 de 9" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/bienal-09.webp" alt="Lançamento na Bienal Internacional do Livro, foto 9 de 9" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/bienal-01.webp" alt="" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/bienal-02.webp" alt="" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/bienal-03.webp" alt="" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/bienal-04.webp" alt="" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/bienal-05.webp" alt="" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/bienal-06.webp" alt="" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/bienal-07.webp" alt="" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/bienal-08.webp" alt="" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/bienal-09.webp" alt="" width="270" height="480" loading="lazy" decoding="async">
+                  </div>
+                  <div class="marquee__group" aria-hidden="true">
+                    <img src="assets/eventos/bienal-01.webp" alt="" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/bienal-02.webp" alt="" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/bienal-03.webp" alt="" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/bienal-04.webp" alt="" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/bienal-05.webp" alt="" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/bienal-06.webp" alt="" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/bienal-07.webp" alt="" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/bienal-08.webp" alt="" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/bienal-09.webp" alt="" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/bienal-01.webp" alt="" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/bienal-02.webp" alt="" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/bienal-03.webp" alt="" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/bienal-04.webp" alt="" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/bienal-05.webp" alt="" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/bienal-06.webp" alt="" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/bienal-07.webp" alt="" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/bienal-08.webp" alt="" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/bienal-09.webp" alt="" width="270" height="480" loading="lazy" decoding="async">
+                  </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <article class="drawer" data-index="1">
+              <button class="drawer__head" type="button" aria-expanded="false">
+                <time datetime="2026-09-21">21/09</time><span class="drawer__place">Galeria Magalu, Conjunto Nacional, São Paulo</span>
+              </button>
+              <div class="drawer__body">
+                <div class="drawer__inner">
+                  <div class="marquee" style="--dur: 85s" role="group" aria-label="Fotos do lançamento na Galeria Magalu">
+                    <div class="marquee__track">
+                  <div class="marquee__group">
+                    <img src="assets/eventos/sao-paulo-01.webp" alt="Lançamento na Galeria Magalu, foto 1 de 25" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/sao-paulo-02.webp" alt="Lançamento na Galeria Magalu, foto 2 de 25" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/sao-paulo-03.webp" alt="Lançamento na Galeria Magalu, foto 3 de 25" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/sao-paulo-04.webp" alt="Lançamento na Galeria Magalu, foto 4 de 25" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/sao-paulo-05.webp" alt="Lançamento na Galeria Magalu, foto 5 de 25" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/sao-paulo-06.webp" alt="Lançamento na Galeria Magalu, foto 6 de 25" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/sao-paulo-07.webp" alt="Lançamento na Galeria Magalu, foto 7 de 25" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/sao-paulo-08.webp" alt="Lançamento na Galeria Magalu, foto 8 de 25" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/sao-paulo-09.webp" alt="Lançamento na Galeria Magalu, foto 9 de 25" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/sao-paulo-10.webp" alt="Lançamento na Galeria Magalu, foto 10 de 25" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/sao-paulo-11.webp" alt="Lançamento na Galeria Magalu, foto 11 de 25" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/sao-paulo-12.webp" alt="Lançamento na Galeria Magalu, foto 12 de 25" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/sao-paulo-13.webp" alt="Lançamento na Galeria Magalu, foto 13 de 25" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/sao-paulo-14.webp" alt="Lançamento na Galeria Magalu, foto 14 de 25" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/sao-paulo-15.webp" alt="Lançamento na Galeria Magalu, foto 15 de 25" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/sao-paulo-16.webp" alt="Lançamento na Galeria Magalu, foto 16 de 25" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/sao-paulo-17.webp" alt="Lançamento na Galeria Magalu, foto 17 de 25" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/sao-paulo-18.webp" alt="Lançamento na Galeria Magalu, foto 18 de 25" width="853" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/sao-paulo-19.webp" alt="Lançamento na Galeria Magalu, foto 19 de 25" width="853" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/sao-paulo-20.webp" alt="Lançamento na Galeria Magalu, foto 20 de 25" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/sao-paulo-21.webp" alt="Lançamento na Galeria Magalu, foto 21 de 25" width="853" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/sao-paulo-22.webp" alt="Lançamento na Galeria Magalu, foto 22 de 25" width="853" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/sao-paulo-23.webp" alt="Lançamento na Galeria Magalu, foto 23 de 25" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/sao-paulo-24.webp" alt="Lançamento na Galeria Magalu, foto 24 de 25" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/sao-paulo-25.webp" alt="Lançamento na Galeria Magalu, foto 25 de 25" width="853" height="480" loading="lazy" decoding="async">
+                  </div>
+                  <div class="marquee__group" aria-hidden="true">
+                    <img src="assets/eventos/sao-paulo-01.webp" alt="" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/sao-paulo-02.webp" alt="" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/sao-paulo-03.webp" alt="" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/sao-paulo-04.webp" alt="" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/sao-paulo-05.webp" alt="" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/sao-paulo-06.webp" alt="" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/sao-paulo-07.webp" alt="" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/sao-paulo-08.webp" alt="" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/sao-paulo-09.webp" alt="" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/sao-paulo-10.webp" alt="" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/sao-paulo-11.webp" alt="" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/sao-paulo-12.webp" alt="" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/sao-paulo-13.webp" alt="" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/sao-paulo-14.webp" alt="" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/sao-paulo-15.webp" alt="" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/sao-paulo-16.webp" alt="" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/sao-paulo-17.webp" alt="" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/sao-paulo-18.webp" alt="" width="853" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/sao-paulo-19.webp" alt="" width="853" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/sao-paulo-20.webp" alt="" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/sao-paulo-21.webp" alt="" width="853" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/sao-paulo-22.webp" alt="" width="853" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/sao-paulo-23.webp" alt="" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/sao-paulo-24.webp" alt="" width="270" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/sao-paulo-25.webp" alt="" width="853" height="480" loading="lazy" decoding="async">
+                  </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <article class="drawer" data-index="2">
+              <button class="drawer__head" type="button" aria-expanded="false">
+                <time datetime="2026-10-13">13/10</time><span class="drawer__place">ReservArt Galeria, Niterói</span>
+              </button>
+              <div class="drawer__body">
+                <div class="drawer__inner">
+                  <div class="marquee" style="--dur: 85s" role="group" aria-label="Fotos do lançamento na ReservArt Galeria">
+                    <div class="marquee__track">
+                  <div class="marquee__group">
+                    <img src="assets/eventos/niteroi-01.webp" alt="Lançamento na ReservArt Galeria, foto 1 de 25" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/niteroi-02.webp" alt="Lançamento na ReservArt Galeria, foto 2 de 25" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/niteroi-03.webp" alt="Lançamento na ReservArt Galeria, foto 3 de 25" width="320" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/niteroi-04.webp" alt="Lançamento na ReservArt Galeria, foto 4 de 25" width="320" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/niteroi-05.webp" alt="Lançamento na ReservArt Galeria, foto 5 de 25" width="320" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/niteroi-06.webp" alt="Lançamento na ReservArt Galeria, foto 6 de 25" width="320" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/niteroi-07.webp" alt="Lançamento na ReservArt Galeria, foto 7 de 25" width="320" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/niteroi-08.webp" alt="Lançamento na ReservArt Galeria, foto 8 de 25" width="320" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/niteroi-09.webp" alt="Lançamento na ReservArt Galeria, foto 9 de 25" width="320" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/niteroi-10.webp" alt="Lançamento na ReservArt Galeria, foto 10 de 25" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/niteroi-11.webp" alt="Lançamento na ReservArt Galeria, foto 11 de 25" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/niteroi-12.webp" alt="Lançamento na ReservArt Galeria, foto 12 de 25" width="320" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/niteroi-13.webp" alt="Lançamento na ReservArt Galeria, foto 13 de 25" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/niteroi-14.webp" alt="Lançamento na ReservArt Galeria, foto 14 de 25" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/niteroi-15.webp" alt="Lançamento na ReservArt Galeria, foto 15 de 25" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/niteroi-16.webp" alt="Lançamento na ReservArt Galeria, foto 16 de 25" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/niteroi-17.webp" alt="Lançamento na ReservArt Galeria, foto 17 de 25" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/niteroi-18.webp" alt="Lançamento na ReservArt Galeria, foto 18 de 25" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/niteroi-19.webp" alt="Lançamento na ReservArt Galeria, foto 19 de 25" width="320" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/niteroi-20.webp" alt="Lançamento na ReservArt Galeria, foto 20 de 25" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/niteroi-21.webp" alt="Lançamento na ReservArt Galeria, foto 21 de 25" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/niteroi-22.webp" alt="Lançamento na ReservArt Galeria, foto 22 de 25" width="320" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/niteroi-23.webp" alt="Lançamento na ReservArt Galeria, foto 23 de 25" width="320" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/niteroi-24.webp" alt="Lançamento na ReservArt Galeria, foto 24 de 25" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/niteroi-25.webp" alt="Lançamento na ReservArt Galeria, foto 25 de 25" width="720" height="480" loading="lazy" decoding="async">
+                  </div>
+                  <div class="marquee__group" aria-hidden="true">
+                    <img src="assets/eventos/niteroi-01.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/niteroi-02.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/niteroi-03.webp" alt="" width="320" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/niteroi-04.webp" alt="" width="320" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/niteroi-05.webp" alt="" width="320" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/niteroi-06.webp" alt="" width="320" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/niteroi-07.webp" alt="" width="320" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/niteroi-08.webp" alt="" width="320" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/niteroi-09.webp" alt="" width="320" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/niteroi-10.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/niteroi-11.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/niteroi-12.webp" alt="" width="320" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/niteroi-13.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/niteroi-14.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/niteroi-15.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/niteroi-16.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/niteroi-17.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/niteroi-18.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/niteroi-19.webp" alt="" width="320" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/niteroi-20.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/niteroi-21.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/niteroi-22.webp" alt="" width="320" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/niteroi-23.webp" alt="" width="320" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/niteroi-24.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/niteroi-25.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+                  </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <article class="drawer" data-index="3">
+              <button class="drawer__head" type="button" aria-expanded="false">
+                <time datetime="2026-10-20">20/10</time><span class="drawer__place">Centro Cultural Unimed-BH Minas, Belo Horizonte</span>
+              </button>
+              <div class="drawer__body">
+                <div class="drawer__inner">
+                  <div class="marquee" style="--dur: 85s" role="group" aria-label="Fotos do lançamento no Centro Cultural Unimed-BH Minas">
+                    <div class="marquee__track">
+                  <div class="marquee__group">
+                    <img src="assets/eventos/belo-horizonte-01.webp" alt="Lançamento no Centro Cultural Unimed-BH Minas, foto 1 de 25" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/belo-horizonte-02.webp" alt="Lançamento no Centro Cultural Unimed-BH Minas, foto 2 de 25" width="320" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/belo-horizonte-03.webp" alt="Lançamento no Centro Cultural Unimed-BH Minas, foto 3 de 25" width="320" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/belo-horizonte-04.webp" alt="Lançamento no Centro Cultural Unimed-BH Minas, foto 4 de 25" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/belo-horizonte-05.webp" alt="Lançamento no Centro Cultural Unimed-BH Minas, foto 5 de 25" width="320" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/belo-horizonte-06.webp" alt="Lançamento no Centro Cultural Unimed-BH Minas, foto 6 de 25" width="320" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/belo-horizonte-07.webp" alt="Lançamento no Centro Cultural Unimed-BH Minas, foto 7 de 25" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/belo-horizonte-08.webp" alt="Lançamento no Centro Cultural Unimed-BH Minas, foto 8 de 25" width="320" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/belo-horizonte-09.webp" alt="Lançamento no Centro Cultural Unimed-BH Minas, foto 9 de 25" width="320" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/belo-horizonte-10.webp" alt="Lançamento no Centro Cultural Unimed-BH Minas, foto 10 de 25" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/belo-horizonte-11.webp" alt="Lançamento no Centro Cultural Unimed-BH Minas, foto 11 de 25" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/belo-horizonte-12.webp" alt="Lançamento no Centro Cultural Unimed-BH Minas, foto 12 de 25" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/belo-horizonte-13.webp" alt="Lançamento no Centro Cultural Unimed-BH Minas, foto 13 de 25" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/belo-horizonte-14.webp" alt="Lançamento no Centro Cultural Unimed-BH Minas, foto 14 de 25" width="320" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/belo-horizonte-15.webp" alt="Lançamento no Centro Cultural Unimed-BH Minas, foto 15 de 25" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/belo-horizonte-16.webp" alt="Lançamento no Centro Cultural Unimed-BH Minas, foto 16 de 25" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/belo-horizonte-17.webp" alt="Lançamento no Centro Cultural Unimed-BH Minas, foto 17 de 25" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/belo-horizonte-18.webp" alt="Lançamento no Centro Cultural Unimed-BH Minas, foto 18 de 25" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/belo-horizonte-19.webp" alt="Lançamento no Centro Cultural Unimed-BH Minas, foto 19 de 25" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/belo-horizonte-20.webp" alt="Lançamento no Centro Cultural Unimed-BH Minas, foto 20 de 25" width="320" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/belo-horizonte-21.webp" alt="Lançamento no Centro Cultural Unimed-BH Minas, foto 21 de 25" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/belo-horizonte-22.webp" alt="Lançamento no Centro Cultural Unimed-BH Minas, foto 22 de 25" width="320" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/belo-horizonte-23.webp" alt="Lançamento no Centro Cultural Unimed-BH Minas, foto 23 de 25" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/belo-horizonte-24.webp" alt="Lançamento no Centro Cultural Unimed-BH Minas, foto 24 de 25" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/belo-horizonte-25.webp" alt="Lançamento no Centro Cultural Unimed-BH Minas, foto 25 de 25" width="320" height="480" loading="lazy" decoding="async">
+                  </div>
+                  <div class="marquee__group" aria-hidden="true">
+                    <img src="assets/eventos/belo-horizonte-01.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/belo-horizonte-02.webp" alt="" width="320" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/belo-horizonte-03.webp" alt="" width="320" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/belo-horizonte-04.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/belo-horizonte-05.webp" alt="" width="320" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/belo-horizonte-06.webp" alt="" width="320" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/belo-horizonte-07.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/belo-horizonte-08.webp" alt="" width="320" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/belo-horizonte-09.webp" alt="" width="320" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/belo-horizonte-10.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/belo-horizonte-11.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/belo-horizonte-12.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/belo-horizonte-13.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/belo-horizonte-14.webp" alt="" width="320" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/belo-horizonte-15.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/belo-horizonte-16.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/belo-horizonte-17.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/belo-horizonte-18.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/belo-horizonte-19.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/belo-horizonte-20.webp" alt="" width="320" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/belo-horizonte-21.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/belo-horizonte-22.webp" alt="" width="320" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/belo-horizonte-23.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/belo-horizonte-24.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/belo-horizonte-25.webp" alt="" width="320" height="480" loading="lazy" decoding="async">
+                  </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <article class="drawer" data-index="4">
+              <button class="drawer__head" type="button" aria-expanded="false">
+                <time datetime="2026-10-22">22/10</time><span class="drawer__place">Livraria Leitura, Galleria Shopping, Campinas</span>
+              </button>
+              <div class="drawer__body">
+                <div class="drawer__inner">
+                  <div class="marquee" style="--dur: 85s" role="group" aria-label="Fotos do lançamento na Livraria Leitura">
+                    <div class="marquee__track">
+                  <div class="marquee__group">
+                    <img src="assets/eventos/campinas-01.webp" alt="Lançamento na Livraria Leitura, foto 1 de 25" width="325" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/campinas-02.webp" alt="Lançamento na Livraria Leitura, foto 2 de 25" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/campinas-03.webp" alt="Lançamento na Livraria Leitura, foto 3 de 25" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/campinas-04.webp" alt="Lançamento na Livraria Leitura, foto 4 de 25" width="320" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/campinas-05.webp" alt="Lançamento na Livraria Leitura, foto 5 de 25" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/campinas-06.webp" alt="Lançamento na Livraria Leitura, foto 6 de 25" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/campinas-07.webp" alt="Lançamento na Livraria Leitura, foto 7 de 25" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/campinas-08.webp" alt="Lançamento na Livraria Leitura, foto 8 de 25" width="320" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/campinas-09.webp" alt="Lançamento na Livraria Leitura, foto 9 de 25" width="328" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/campinas-10.webp" alt="Lançamento na Livraria Leitura, foto 10 de 25" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/campinas-11.webp" alt="Lançamento na Livraria Leitura, foto 11 de 25" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/campinas-12.webp" alt="Lançamento na Livraria Leitura, foto 12 de 25" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/campinas-13.webp" alt="Lançamento na Livraria Leitura, foto 13 de 25" width="712" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/campinas-14.webp" alt="Lançamento na Livraria Leitura, foto 14 de 25" width="671" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/campinas-15.webp" alt="Lançamento na Livraria Leitura, foto 15 de 25" width="756" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/campinas-16.webp" alt="Lançamento na Livraria Leitura, foto 16 de 25" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/campinas-17.webp" alt="Lançamento na Livraria Leitura, foto 17 de 25" width="320" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/campinas-18.webp" alt="Lançamento na Livraria Leitura, foto 18 de 25" width="316" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/campinas-19.webp" alt="Lançamento na Livraria Leitura, foto 19 de 25" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/campinas-20.webp" alt="Lançamento na Livraria Leitura, foto 20 de 25" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/campinas-21.webp" alt="Lançamento na Livraria Leitura, foto 21 de 25" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/campinas-22.webp" alt="Lançamento na Livraria Leitura, foto 22 de 25" width="320" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/campinas-23.webp" alt="Lançamento na Livraria Leitura, foto 23 de 25" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/campinas-24.webp" alt="Lançamento na Livraria Leitura, foto 24 de 25" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/campinas-25.webp" alt="Lançamento na Livraria Leitura, foto 25 de 25" width="720" height="480" loading="lazy" decoding="async">
+                  </div>
+                  <div class="marquee__group" aria-hidden="true">
+                    <img src="assets/eventos/campinas-01.webp" alt="" width="325" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/campinas-02.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/campinas-03.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/campinas-04.webp" alt="" width="320" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/campinas-05.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/campinas-06.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/campinas-07.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/campinas-08.webp" alt="" width="320" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/campinas-09.webp" alt="" width="328" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/campinas-10.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/campinas-11.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/campinas-12.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/campinas-13.webp" alt="" width="712" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/campinas-14.webp" alt="" width="671" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/campinas-15.webp" alt="" width="756" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/campinas-16.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/campinas-17.webp" alt="" width="320" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/campinas-18.webp" alt="" width="316" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/campinas-19.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/campinas-20.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/campinas-21.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/campinas-22.webp" alt="" width="320" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/campinas-23.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/campinas-24.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+                    <img src="assets/eventos/campinas-25.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+                  </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
         </div>
       </div>
     </section>
@@ -260,15 +617,15 @@
         <div class="faq-heading reveal">
           <p class="eyebrow">Dúvidas frequentes</p>
           <h2 id="faq-title">Antes de garantir seu exemplar.</h2>
-          <p>As informações de pagamento e envio são confirmadas pessoalmente antes da finalização.</p>
+          <p>O livro avulso está na Livraria Leitura, na Amazon e no Mercado Livre. Os kits são combinados diretamente com a autora.</p>
         </div>
         <div class="faq-list reveal reveal--delay">
-          <details><summary>Como faço para comprar?</summary><p>O atendimento confirma as condições atualizadas, registra seu pedido e orienta sobre as próximas etapas.</p></details>
-          <details><summary>Qual é o valor e a forma de pagamento?</summary><p>Kit exclusivo: Livro, Baralho, Marcador, numa caixa personalizada para uma experiência completa: R$ 339,00. Livro + Marcador: R$ 139,00. As formas de pagamento são confirmadas diretamente pelo WhatsApp antes da finalização do pedido.</p></details>
-          <details><summary>Como será feita a entrega?</summary><p>As opções de envio, retirada e eventuais custos de frete são confirmados conforme sua localização.</p></details>
+          <details><summary>Como faço para comprar?</summary><p>Só o livro: compre na <a target="_blank" rel="noopener noreferrer" data-event="loja_leitura_faq" href="https://leitura.com.br/produto/entreviver-permanecer-rozalia-del-gaudio-9786597595419">Livraria Leitura</a>, na <a target="_blank" rel="noopener noreferrer" data-event="loja_amazon_faq" href="https://a.co/d/00843OJn">Amazon</a> ou no <a target="_blank" rel="noopener noreferrer" data-event="loja_mercadolivre_faq" href="https://meli.la/1fevQVW">Mercado Livre</a>. Kit Luxo e Kit Essencial: são vendidos somente pela autora, <a data-event="cta_whatsapp_faq_resposta" href="https://wa.me/5519998315334" data-cta-text="Vim pelo site e quero o kit de ENTREVIVER // PERMANECER. Pode me ajudar?" data-cta-campaign="faq_kits">pelo WhatsApp</a>.</p></details>
+          <details><summary>Qual é o valor e a forma de pagamento?</summary><p>Kit Luxo (livro, baralho e marcador numa caixa personalizada): R$ 339,00. Kit Essencial (livro + marcador): R$ 139,00. A forma de pagamento dos kits é combinada com a autora pelo WhatsApp. O livro avulso segue o preço e as formas de pagamento da Livraria Leitura, da Amazon e do Mercado Livre.</p></details>
+          <details><summary>Como será feita a entrega?</summary><p>Nos kits, as opções de envio, retirada e frete são combinadas com a autora conforme sua localização. Na Livraria Leitura, na Amazon e no Mercado Livre, a entrega segue as regras de cada loja.</p></details>
           <details><summary>Preciso ler o livro em sequência?</summary><p>Não. Você pode abrir em qualquer página e permanecer em uma fotografia, frase ou reflexão pelo tempo que precisar.</p></details>
           <details><summary>O livro é sobre o tratamento oncológico?</summary><p>O tratamento faz parte de sua origem, mas a obra fala principalmente sobre presença, afeto, gratidão e espiritualidade.</p></details>
-          <a class="button button--primary faq-cta" data-event="cta_whatsapp_faq" href="mailto:rozalia@inspiria3.com?subject=Interesse%20no%20livro%20ENTREVIVER%20%2F%2F%20PERMANECER&amp;body=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20livro." data-cta-text="Vim pelo site e ainda tenho uma dúvida sobre ENTREVIVER // PERMANECER." data-cta-campaign="faq">Quero meu exemplar</a>
+          <a class="button button--primary faq-cta" data-event="cta_faq" href="#comprar" data-open-buy>Quero meu exemplar</a>
         </div>
       </div>
     </section>
@@ -280,7 +637,7 @@
         <p>Escolha uma página.</p><p>Uma fotografia. Uma frase.</p><strong>E permaneça o tempo que precisar.</strong>
         <div class="closing-cta">
           <p class="closing-cta__line">Seu exemplar espera por você.</p>
-          <a class="button button--primary button--large" data-event="cta_whatsapp_fechamento" href="mailto:rozalia@inspiria3.com?subject=Interesse%20no%20livro%20ENTREVIVER%20%2F%2F%20PERMANECER&amp;body=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20livro." data-cta-text="Vim pelo site e quero garantir meu exemplar de ENTREVIVER // PERMANECER. Como faço para finalizar?" data-cta-campaign="fechamento">Quero meu exemplar</a>
+          <a class="button button--primary button--large" data-event="cta_fechamento" href="#comprar" data-open-buy>Quero meu exemplar</a>
         </div>
       </div>
     </section>
@@ -302,6 +659,27 @@
     </div>
   </footer>
 
+  <!-- Modal: onde comprar o livro -->
+  <dialog class="buy-modal" id="onde-comprar" aria-labelledby="buy-modal-title">
+    <div class="buy-modal__inner">
+      <button class="buy-modal__close" type="button" data-close-buy>Fechar</button>
+      <p class="eyebrow">ENTREVIVER // PERMANECER</p>
+      <h2 id="buy-modal-title">Escolha onde comprar.</h2>
+      <div class="buy-modal__stores">
+        <a class="buy-modal__store" target="_blank" rel="noopener noreferrer" data-event="loja_leitura" href="https://leitura.com.br/produto/entreviver-permanecer-rozalia-del-gaudio-9786597595419">
+          <strong>Livraria Leitura</strong><span>Loja online da livraria</span>
+        </a>
+        <a class="buy-modal__store" target="_blank" rel="noopener noreferrer" data-event="loja_amazon" href="https://a.co/d/00843OJn">
+          <strong>Amazon</strong><span>Compra e entrega pela Amazon</span>
+        </a>
+        <a class="buy-modal__store" target="_blank" rel="noopener noreferrer" data-event="loja_mercadolivre" href="https://meli.la/1fevQVW">
+          <strong>Mercado Livre</strong><span>Compra e entrega pelo Mercado Livre</span>
+        </a>
+      </div>
+      <p class="buy-modal__kits">Quer o Kit Luxo ou o Kit Essencial? Eles são vendidos somente pela autora, <a data-event="cta_whatsapp_kit_modal" href="https://wa.me/5519998315334" data-cta-text="Vim pelo site e quero o kit de ENTREVIVER // PERMANECER. Pode me ajudar?" data-cta-campaign="modal_kits">pelo WhatsApp</a>.</p>
+    </div>
+  </dialog>
+
   <!-- Destino dos botões de conversão -->
   <script>
     const WHATSAPP = '5519998315334';
@@ -321,21 +699,185 @@
     }
   </script>
 
-  <!-- Entrada suave do conteúdo durante a rolagem -->
+  <!-- Animações de rolagem (GSAP + ScrollTrigger).
+       Se a biblioteca não carregar, nada fica escondido: o site aparece inteiro, sem animação. -->
   <script>
-    const items = document.querySelectorAll('.reveal');
-    if ('IntersectionObserver' in window) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target);
-          }
+    if (window.gsap && window.ScrollTrigger) {
+      gsap.registerPlugin(ScrollTrigger);
+
+      /* Quebra o texto em palavras (mantendo trechos coloridos), para o título subir palavra por palavra */
+      const splitWords = (el) => {
+        const walk = (node) => {
+          [...node.childNodes].forEach((child) => {
+            if (child.nodeType === 3) {
+              const frag = document.createDocumentFragment();
+              child.textContent.split(/(\s+)/).forEach((part) => {
+                if (!part) return;
+                if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+                const w = document.createElement('span'); w.className = 'w';
+                const wi = document.createElement('span'); wi.className = 'wi'; wi.textContent = part;
+                w.appendChild(wi); frag.appendChild(w);
+              });
+              child.replaceWith(frag);
+            } else if (child.nodeType === 1) {
+              walk(child);
+            }
+          });
+        };
+        walk(el);
+        return el.querySelectorAll('.wi');
+      };
+
+      /* 1. Abertura: entra ao carregar a página */
+      const hero = gsap.timeline({ defaults: { ease: 'expo.out' }, delay: 0.15 });
+      hero.from('.hero .eyebrow', { y: 20, opacity: 0, duration: 0.9 })
+          .from(splitWords(document.querySelector('.hero h1')), { yPercent: 110, duration: 1.2, stagger: 0.06 }, '-=0.6')
+          .from('.hero-subtitle, .hero-actions', { y: 24, opacity: 0, duration: 1, stagger: 0.12, ease: 'power3.out' }, '-=0.8')
+          .from('.hero-visual', { y: 60, opacity: 0, duration: 1.4 }, '-=1.1');
+
+      /* 2. Títulos das seções sobem palavra por palavra */
+      document.querySelectorAll('main h2').forEach((h2) => {
+        if (h2.closest('.hero')) return;
+        gsap.from(splitWords(h2), {
+          yPercent: 110, duration: 1.1, stagger: 0.05, ease: 'expo.out',
+          scrollTrigger: { trigger: h2, start: 'top 88%' }
         });
-      }, { threshold: 0.12, rootMargin: '0px 0px -48px 0px' });
-      items.forEach((item) => observer.observe(item));
-    } else {
-      items.forEach((item) => item.classList.add('is-visible'));
+      });
+
+      /* 3. Rótulos, textos, listas e botões entram em sequência */
+      const textos = gsap.utils.toArray(
+        'main .eyebrow, main p, main li, main .button, main .text-link, main blockquote, main figcaption, ' +
+        'main summary, main .platform-strip, main .events-banner, main .preorder-price__item'
+      ).filter((el) =>
+        /* fora: abertura (tem a sua), gavetas, respostas do FAQ (escondidas até abrir)
+           e peças que já animam junto com o bloco em que estão */
+        !el.closest('.hero, .events-scroller, details > p') &&
+        !(el.parentElement && el.parentElement.closest('.events-banner, .platform-strip, .preorder-price__item, h2'))
+      );
+      gsap.set(textos, { y: 28, opacity: 0 });
+      ScrollTrigger.batch(textos, {
+        start: 'top 90%',
+        onEnter: (lote) => gsap.to(lote, { y: 0, opacity: 1, duration: 0.9, stagger: 0.08, ease: 'power3.out', overwrite: true })
+      });
+
+      /* 4. Fotos se revelam de baixo para cima */
+      gsap.utils.toArray('.origin-photo, .author-portrait, .kit-shot, .spread__img').forEach((img) => {
+        gsap.fromTo(img, { clipPath: 'inset(100% 0% 0% 0%)' }, {
+          clipPath: 'inset(0% 0% 0% 0%)', duration: 1.5, ease: 'expo.out', clearProps: 'clipPath',
+          scrollTrigger: { trigger: img, start: 'top 85%' }
+        });
+      });
+      gsap.from('.author-photo', { scale: 1.18, duration: 1.8, ease: 'expo.out', scrollTrigger: { trigger: '.author-portrait', start: 'top 85%' } });
+
+      /* 5. O 414 conta de 0 até 414 */
+      const dias = document.querySelector('.origin-number strong');
+      if (dias) {
+        const alvo = { n: 0 };
+        gsap.to(alvo, {
+          n: 414, duration: 2.2, ease: 'power2.out',
+          onUpdate: () => { dias.textContent = Math.round(alvo.n); },
+          scrollTrigger: { trigger: dias, start: 'top 85%' }
+        });
+        dias.textContent = '0';
+      }
+
+      /* 6. Símbolos e pétalas flutuam devagar enquanto a página rola */
+      [['.symbol--petal', -60, 10], ['.symbol--window', -50, 0], ['.preorder-monogram', -40, 0], ['.closing-symbol', -50, 8]].forEach(([sel, y, giro]) => {
+        const el = document.querySelector(sel);
+        if (!el) return;
+        gsap.fromTo(el, { y: -y }, {
+          y, rotation: '+=' + giro, ease: 'none',
+          scrollTrigger: { trigger: el.closest('section'), start: 'top bottom', end: 'bottom top', scrub: 1 }
+        });
+      });
+
+      /* Fontes e imagens mudam a altura das seções: recalcula os pontos de disparo */
+      window.addEventListener('load', () => ScrollTrigger.refresh());
+      if (document.fonts) document.fonts.ready.then(() => ScrollTrigger.refresh());
+    }
+
+    /* Todo botão de comprar o livro abre o modal com as três lojas.
+       Sem suporte a <dialog>, o link segue para a seção Onde comprar. */
+    const buyModal = document.getElementById('onde-comprar');
+    if (buyModal && typeof buyModal.showModal === 'function') {
+      document.querySelectorAll('[data-open-buy]').forEach((trigger) => {
+        trigger.addEventListener('click', (event) => {
+          event.preventDefault();
+          buyModal.showModal();
+        });
+      });
+      buyModal.querySelectorAll('[data-close-buy]').forEach((btn) => {
+        btn.addEventListener('click', () => buyModal.close());
+      });
+      /* Clicar fora do cartão fecha o modal */
+      buyModal.addEventListener('click', (event) => {
+        if (event.target === buyModal) buyModal.close();
+      });
+      /* Escolher uma loja (abre em nova aba) também fecha */
+      buyModal.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => buyModal.close());
+      });
+    }
+
+    /* Lançamentos em gavetas: a seção trava na tela e, conforme a rolagem,
+       a gaveta do evento atual fecha e a do próximo abre */
+    const scroller = document.querySelector('.events-scroller');
+    if (scroller) {
+      const drawers = [...scroller.querySelectorAll('.drawer')];
+      const stage = scroller.querySelector('.events-sticky');
+      const list = scroller.querySelector('.events-drawers');
+      let current = -1;
+
+      /* Desliza a lista para que o carrossel aberto fique no centro da tela.
+         Usa as alturas finais (título + carrossel), não as da animação em curso. */
+      const center = (index) => {
+        let top = 0;
+        for (let i = 0; i < index; i++) top += 1 + drawers[i].querySelector('.drawer__head').offsetHeight;
+        top += 1 + drawers[index].querySelector('.drawer__head').offsetHeight;
+        const body = drawers[index].querySelector('.drawer__inner').scrollHeight;
+        const y = stage.clientHeight / 2 - (top + body / 2);
+        list.style.setProperty('--drawers-y', Math.round(y) + 'px');
+      };
+
+      const activate = (index, force) => {
+        if (index === current && !force) return;
+        current = index;
+        drawers.forEach((drawer, i) => {
+          drawer.classList.toggle('is-active', i === index);
+          drawer.querySelector('.drawer__head').setAttribute('aria-expanded', i === index ? 'true' : 'false');
+        });
+        center(index);
+      };
+      const progress = () => {
+        const rect = scroller.getBoundingClientRect();
+        const run = scroller.offsetHeight - window.innerHeight;
+        if (run <= 0) return 0;
+        return Math.min(1, Math.max(0, -rect.top / run));
+      };
+      let ticking = false;
+      const onScroll = () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+          activate(Math.min(drawers.length - 1, Math.floor(progress() * drawers.length)));
+          ticking = false;
+        });
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', () => activate(Math.max(0, current), true));
+      activate(Math.min(drawers.length - 1, Math.floor(progress() * drawers.length)), true);
+      /* A fonte dos títulos muda a altura das gavetas ao carregar: recentraliza */
+      if (document.fonts) document.fonts.ready.then(() => activate(Math.max(0, current), true));
+      window.addEventListener('load', () => activate(Math.max(0, current), true));
+
+      /* Clicar no título de uma gaveta rola até o trecho em que ela fica aberta */
+      drawers.forEach((drawer, i) => {
+        drawer.querySelector('.drawer__head').addEventListener('click', () => {
+          const run = scroller.offsetHeight - window.innerHeight;
+          const top = scroller.getBoundingClientRect().top + window.scrollY;
+          window.scrollTo({ top: top + run * ((i + 0.5) / drawers.length), behavior: 'smooth' });
+        });
+      });
     }
 
     /* Abertura do livro no toque, para aparelhos sem cursor */

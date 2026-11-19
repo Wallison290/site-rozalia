@@ -21,6 +21,8 @@ html { scroll-behavior: smooth; overflow-x: hidden; }
 body {
   margin: 0;
   overflow-x: hidden;
+  /* clip corta o excesso lateral sem quebrar o "position: sticky" das gavetas */
+  overflow-x: clip;
   background-color: var(--color-bg);
   background-image: var(--texture-horizontal);
   background-repeat: repeat;
@@ -121,6 +123,65 @@ h2 { font-size: clamp(2.2rem, 4.8vw, 3.8rem); font-weight: 500; }
 .desktop-nav a:hover, .header-cta:hover { opacity: 0.62; }
 
 .header-cta { font-size: 0.88rem; font-weight: 600; }
+
+/* Modal "Escolha onde comprar" */
+.buy-modal {
+  width: min(100% - 2rem, 520px);
+  max-height: calc(100dvh - 2rem);
+  overflow: auto;
+  padding: 0;
+  border: 1px solid rgba(224, 215, 198, 0.4);
+  color: var(--color-bg);
+  /* fundo no verde escuro do site; os botões das lojas ficam no verde musgo */
+  background-color: var(--color-primary);
+  background-image: var(--texture-horizontal);
+  background-size: var(--texture-size);
+  background-blend-mode: multiply;
+  box-shadow: 0 30px 70px rgba(8, 18, 10, 0.55);
+}
+.buy-modal::backdrop { background: rgba(20, 40, 25, 0.62); backdrop-filter: blur(3px); }
+.buy-modal[open] { animation: buy-modal-in 260ms ease-out; }
+@keyframes buy-modal-in { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+.buy-modal__inner { position: relative; padding: clamp(1.5rem, 4vw, 2.25rem); }
+.buy-modal__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid rgba(224, 215, 198, 0.4);
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  font-family: var(--font-text);
+  font-size: 0.74rem;
+  cursor: pointer;
+  transition: opacity 180ms ease;
+}
+.buy-modal__close:hover { opacity: 0.62; }
+.buy-modal .eyebrow { margin-bottom: 0.6rem; padding-right: 5rem; opacity: 0.85; }
+.buy-modal h2 { margin-bottom: 1.25rem; font-size: clamp(1.7rem, 5vw, 2.3rem); }
+.buy-modal__stores { display: grid; gap: 0.65rem; }
+@media (min-width: 720px) {
+  /* No computador o modal fica mais largo e as três lojas lado a lado: tudo cabe sem rolar */
+  .buy-modal { width: min(100% - 2rem, 760px); }
+  .buy-modal__stores { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+.buy-modal__store {
+  display: grid;
+  gap: 0.2rem;
+  padding: 0.9rem 1.15rem;
+  /* mesmo verde musgo do botão "Quero meu exemplar", com sombra para parecer clicável */
+  background: var(--color-moss);
+  border: 1px solid rgba(224, 215, 198, 0.18);
+  box-shadow: 0 10px 22px rgba(4, 10, 6, 0.45), 0 2px 4px rgba(4, 10, 6, 0.3);
+  border-radius: 14px;
+  transition: transform 200ms ease, box-shadow 200ms ease, filter 200ms ease;
+}
+.buy-modal__store:hover, .buy-modal__store:focus-visible { transform: translateY(-3px); filter: brightness(1.08); box-shadow: 0 16px 30px rgba(4, 10, 6, 0.55), 0 3px 6px rgba(4, 10, 6, 0.3); }
+.buy-modal__store strong { font-family: var(--font-display); font-size: 1.35rem; font-weight: 500; letter-spacing: -0.02em; line-height: 1.1; }
+.buy-modal__store span { font-size: 0.8rem; opacity: 0.88; }
+.buy-modal__kits { margin: 1.25rem 0 0; padding-top: 1rem; border-top: 1px solid rgba(224, 215, 198, 0.4); font-size: 0.84rem; line-height: 1.55; }
+.buy-modal__kits a { font-weight: 700; border-bottom: 1px solid currentColor; }
 
 .hero {
   min-height: 760px;
@@ -264,13 +325,16 @@ h2 { font-size: clamp(2.2rem, 4.8vw, 3.8rem); font-weight: 500; }
 }
 
 .statement { position: relative; overflow: hidden; border-top: var(--border); border-bottom: var(--border); }
-.statement-grid { display: grid; gap: 3rem; }
+.statement-grid { display: grid; gap: 2.5rem 3rem; }
+/* O rótulo fica sozinho em cima; título e texto começam na mesma linha */
+.statement-eyebrow { grid-column: 1 / -1; margin: 0 0 -1rem; }
 .statement h2 { max-width: 830px; margin: 0; }
 .statement h2 span { color: var(--color-accent); }
 .statement-copy { max-width: 520px; }
 .statement-copy p:last-child { margin-bottom: 0; }
 .symbol { display: block; object-fit: contain; }
-.symbol--petal { position: absolute; width: min(29vw, 370px); right: -3%; bottom: -10%; opacity: 0.18; mix-blend-mode: multiply; transform: rotate(-8deg); }
+/* Pétala inteira dentro da seção, sem ser cortada pela borda de baixo */
+.symbol--petal { position: absolute; width: min(14vw, 180px); height: auto; right: 4%; bottom: 3rem; opacity: 0.18; mix-blend-mode: multiply; transform: rotate(-8deg); }
 
 .reading-grid { display: grid; gap: 4rem; align-items: center; }
 
@@ -286,24 +350,35 @@ h2 { font-size: clamp(2.2rem, 4.8vw, 3.8rem); font-weight: 500; }
 .text-link { display: inline-flex; align-items: center; gap: 0.6rem; padding-bottom: 0.25rem; border-bottom: 1px solid currentColor; font-weight: 600; }
 .text-link:hover { opacity: 0.62; }
 
+/* Faixa "Disponível na Amazon e no Mercado Livre" */
+.platform-strip {
+  display: inline-block;
+  line-height: 1.6;
+  width: fit-content;
+  max-width: 100%;
+  margin: 1.75rem 0 0;
+  padding: 0.6rem 1.15rem;
+  border-radius: 999px;
+  /* mesmo marrom da seção Onde comprar */
+  background: var(--color-accent);
+  color: var(--color-bg);
+  font-size: 0.82rem;
+  transition: opacity 200ms ease;
+}
+.platform-strip strong { color: var(--color-bg); border-bottom: 1px solid currentColor; }
+.platform-strip:hover { opacity: 0.88; }
+
 .audience { position: relative; overflow: hidden; background-color: var(--color-primary); background-image: var(--texture-horizontal); background-repeat: repeat; background-size: var(--texture-size); background-blend-mode: multiply; color: var(--color-bg); }
 .audience .container { position: relative; }
+/* Janela já pintada de verde musgo (antes era máscara CSS, que o Chrome bloqueia ao abrir o site como arquivo) */
 .symbol--window {
   position: absolute;
   width: min(32vw, 390px);
-  aspect-ratio: 0.645;
+  aspect-ratio: 0.65;
   right: 0;
   top: -3rem;
   opacity: 0.55;
-  background-color: var(--color-moss);
-  -webkit-mask-image: url("assets/icone-janela.png");
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-  -webkit-mask-size: cover;
-  mask-image: url("assets/icone-janela.png");
-  mask-repeat: no-repeat;
-  mask-position: center;
-  mask-size: cover;
+  background: url("assets/simbolo-janela-musgo.webp") center / contain no-repeat;
 }
 .section-heading { max-width: 700px; margin-bottom: 4rem; }
 .section-heading h2 { margin: 0; }
@@ -317,7 +392,7 @@ h2 { font-size: clamp(2.2rem, 4.8vw, 3.8rem); font-weight: 500; }
 .origin-number strong { display: block; color: var(--color-moss); font-family: var(--font-display); font-size: clamp(7rem, 24vw, 14rem); font-weight: 500; line-height: 0.76; letter-spacing: -0.07em; }
 .origin-number span { display: block; margin-top: 1.3rem; font-size: 2rem; color: var(--color-accent); }
 .origin-number p { margin: 1rem 0 0; font-size: 0.85rem; white-space: nowrap; }
-.origin-photo { width: min(100%, 330px); aspect-ratio: 0.82; margin-top: 2.25rem; object-fit: cover; filter: saturate(0.72) contrast(1.03); border: var(--border); }
+.origin-photo { width: min(100%, 330px); height: auto; aspect-ratio: 0.82; margin-top: 2.25rem; object-fit: cover; object-position: center bottom; filter: saturate(0.72) contrast(1.03); border: var(--border); }
 .memory-frame { position: absolute; width: min(100%, 365px); left: -18px; bottom: -18px; opacity: 0.58; mix-blend-mode: multiply; pointer-events: none; }
 .origin-copy { width: 100%; max-width: none; display: flex; flex-direction: column; justify-content: center; height: 100%; }
 .origin-copy h2 { margin-bottom: 2rem; }
@@ -326,8 +401,9 @@ h2 { font-size: clamp(2.2rem, 4.8vw, 3.8rem); font-weight: 500; }
 .text-link--light { margin-top: 1.2rem; }
 
 .author-grid { display: grid; gap: 4rem; align-items: center; }
-.author-portrait { min-height: 560px; position: relative; overflow: hidden; background-color: var(--color-primary); }
-.author-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+/* Quadro vertical 4:5 (a foto é vertical): mostra a cabeça e o livro inteiros */
+.author-portrait { aspect-ratio: 4 / 5; position: relative; overflow: hidden; background-color: var(--color-primary); }
+.author-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 54%; }
 .author-copy { max-width: 590px; }
 .author-copy h2 { margin-bottom: 0.6rem; }
 .author-role { margin-bottom: 2rem; font-size: 0.88rem; color: var(--color-accent); }
@@ -364,7 +440,17 @@ h2 { font-size: clamp(2.2rem, 4.8vw, 3.8rem); font-weight: 500; }
 .preorder-price__desc { font-size: 0.86rem; line-height: 1.5; opacity: 0.78; }
 .preorder-price__value { font-family: var(--font-display); font-size: clamp(1.7rem, 3.2vw, 2.4rem); font-weight: 500; letter-spacing: -0.025em; line-height: 1; }
 
-.launch-agenda { margin: 0 0 2.5rem; padding-top: 1.75rem; border-top: 1px solid rgba(224,215,198,0.34); }
+.preorder-price__note { margin: 0; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #d8c98f; }
+
+/* Onde comprar: kits com a autora, livro nas lojas */
+.buy-options { display: grid; gap: 1.5rem; margin: 2rem 0 2.5rem; }
+.buy-option { display: grid; justify-items: start; gap: 0.8rem; padding-top: 1.35rem; border-top: 1px solid rgba(224,215,198,0.34); }
+.buy-option__title { margin: 0; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.72; }
+.buy-option__hint { margin: 0; font-size: 0.8rem; opacity: 0.68; }
+.button--outline { min-height: 52px; padding-inline: 1.7rem; border: 1px solid rgba(224,215,198,0.62); color: var(--color-bg); background: transparent; }
+.button--outline:hover { background: rgba(224,215,198,0.1); opacity: 1; }
+
+.launch-agenda { margin: 0 0 1.5rem; padding-top: 1.75rem; border-top: 1px solid rgba(224,215,198,0.34); }
 .launch-agenda__title { margin: 0 0 0.35rem; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.68; }
 .launch-agenda ul { margin: 0; padding: 0; list-style: none; }
 .launch-agenda li { display: grid; gap: 0.15rem 1.25rem; padding: 0.85rem 0; border-bottom: 1px solid rgba(224,215,198,0.22); font-size: 0.88rem; }
@@ -374,6 +460,113 @@ h2 { font-size: clamp(2.2rem, 4.8vw, 3.8rem); font-weight: 500; }
 .launch-agenda li em { font-style: normal; opacity: 0.66; white-space: nowrap; }
 
 .preorder .button--primary { background: var(--color-bg); color: var(--color-primary); }
+
+/* Faixa que leva às fotos dos lançamentos */
+.events-banner {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.1rem;
+  max-width: 100%;
+  padding: 0.75rem 1.5rem 0.75rem 0.8rem;
+  border: 1px solid rgba(224,215,198,0.45);
+  border-radius: 999px;
+  background: rgba(24, 10, 6, 0.45);
+  transition: background-color 200ms ease, transform 200ms ease;
+}
+.events-banner:hover { background: rgba(24, 10, 6, 0.7); transform: scale(1.01); }
+.events-banner__thumbs { display: flex; flex: none; }
+.events-banner__thumbs img { width: 44px; height: 44px; object-fit: cover; border-radius: 50%; border: 2px solid var(--color-accent); }
+.events-banner__thumbs img + img { margin-left: -14px; }
+.events-banner__text { display: grid; gap: 0.15rem; font-size: 0.92rem; font-weight: 700; line-height: 1.3; }
+.events-banner__text small { font-size: 0.64rem; font-weight: 400; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.7; }
+
+/* Como foram os lançamentos: gavetas com carrossel infinito */
+.events { padding-bottom: 0; border-bottom: var(--border); }
+/* Mesmo alinhamento das outras seções: tudo à esquerda, título numa linha */
+.events-heading { max-width: none; }
+.events-heading p:last-child { max-width: 640px; }
+.events-heading h2 { margin-bottom: 1.25rem; }
+.events-heading p:last-child { margin-bottom: 0; font-size: 1.02rem; }
+.events-scroller { margin-top: 2.5rem; }
+.events-sticky { padding-block: 1.5rem var(--section-space); }
+.events-drawers { width: min(100% - 3rem, var(--container)); margin-inline: auto; border-bottom: var(--border); }
+
+.drawer { border-top: var(--border); }
+.drawer__head {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.2rem 1rem;
+  padding: 0.95rem 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font-family: var(--font-text);
+  font-size: 0.86rem;
+  text-align: left;
+  cursor: pointer;
+  opacity: 0.58;
+  transition: opacity 400ms ease;
+}
+.drawer__head:hover { opacity: 0.85; }
+.drawer__head time { font-weight: 700; letter-spacing: 0.04em; color: var(--color-accent); }
+.drawer__place { flex: 1 1 14rem; font-family: var(--font-display); font-size: clamp(1.05rem, 2.4vw, 1.5rem); font-weight: 500; letter-spacing: -0.015em; line-height: 1.2; }
+@media (min-width: 640px) {
+  .events-drawers { width: min(100% - 4rem, var(--container)); }
+}
+@media (min-width: 1024px) {
+  .events-drawers { width: min(100% - 6rem, var(--container)); }
+}
+.drawer.is-active .drawer__head { opacity: 1; }
+
+/* A gaveta abre e fecha pela altura da linha da grade */
+.drawer__body { display: grid; grid-template-rows: 1fr; }
+.drawer__inner { min-height: 0; overflow: hidden; }
+
+/* Carrossel infinito: dois grupos iguais deslizando sem emenda, de ponta a ponta da tela */
+.marquee { margin-inline: calc(50% - 50vw); padding-bottom: 1.4rem; overflow: hidden; }
+.marquee__track { display: flex; width: max-content; animation: marquee var(--dur, 80s) linear infinite; }
+.marquee__group { display: flex; flex: none; }
+.marquee__group img {
+  flex: none;
+  width: auto;
+  height: clamp(190px, 26vw, 300px);
+  margin-right: 0.75rem;
+  object-fit: cover;
+  border: var(--border);
+  background-color: rgba(46, 39, 23, 0.08);
+}
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* Com JavaScript, a seção trava na tela e as gavetas abrem uma por vez durante a rolagem */
+.has-js .events-scroller { height: calc(100vh + (var(--count) - 1) * 70vh); height: calc(100svh + (var(--count) - 1) * 70svh); }
+/* O último carrossel fica no centro da tela e sobra meia tela vazia abaixo dele:
+   a seção seguinte sobe e ocupa esse vazio */
+.has-js .events-scroller { margin-bottom: calc(12rem - 50vh); margin-bottom: calc(12rem - 50svh); }
+/* O palco fica preso na tela; a lista de gavetas desliza para que o
+   carrossel aberto fique sempre no centro (o deslocamento vem do script) */
+.has-js .events-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  padding: 0;
+  overflow: hidden;
+}
+.has-js .events-drawers {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  transform: translateY(var(--drawers-y, 0px));
+  transition: transform 750ms cubic-bezier(0.7, 0, 0.2, 1);
+}
+.has-js .drawer__body { grid-template-rows: 0fr; transition: grid-template-rows 750ms cubic-bezier(0.7, 0, 0.2, 1); }
+.has-js .drawer.is-active .drawer__body { grid-template-rows: 1fr; }
+.has-js .drawer__inner { opacity: 0; transition: opacity 500ms ease; }
+.has-js .drawer.is-active .drawer__inner { opacity: 1; transition-delay: 200ms; }
+.has-js .drawer:not(.is-active) .marquee__track { animation-play-state: paused; }
 .faq-grid { display: grid; gap: 4rem; align-items: start; }
 .faq-heading { max-width: 480px; }
 .faq-heading h2 { margin-bottom: 1.5rem; }
@@ -384,6 +577,8 @@ h2 { font-size: clamp(2.2rem, 4.8vw, 3.8rem); font-weight: 500; }
 .faq-list summary::after { content: "+"; position: absolute; top: 1.15rem; right: 0; font-size: 1.4rem; font-weight: 400; }
 .faq-list details[open] summary::after { content: "−"; }
 .faq-list details p { max-width: 650px; padding: 0 2rem 1.4rem 0; margin: 0; }
+.faq-list details p a { font-weight: 700; border-bottom: 1px solid currentColor; }
+.faq-list details p a:hover { opacity: 0.62; }
 .faq-cta { margin-top: 2rem; }
 
 .closing { padding: var(--section-space) 0; background-color: var(--color-primary); background-image: var(--texture-horizontal); background-repeat: repeat; background-size: var(--texture-size); background-blend-mode: multiply; color: var(--color-bg); text-align: center; overflow: hidden; }
@@ -419,13 +614,7 @@ h2 { font-size: clamp(2.2rem, 4.8vw, 3.8rem); font-weight: 500; }
 .footer-credit a { border-bottom: 1px solid rgba(224, 215, 198, 0.4); }
 
 .reveal { opacity: 1; transform: none; }
-.has-js .reveal {
-  opacity: 0;
-  transform: translateY(26px);
-  transition: opacity 720ms ease-out, transform 720ms ease-out;
-}
-.has-js .reveal--delay { transition-delay: 100ms; }
-.has-js .reveal.is-visible { opacity: 1; transform: translateY(0); }
+
 
 @media (min-width: 640px) {
   .container { width: min(100% - 4rem, var(--container)); }
@@ -440,7 +629,8 @@ h2 { font-size: clamp(2.2rem, 4.8vw, 3.8rem); font-weight: 500; }
   .desktop-nav { display: flex; }
   /* Onde há espaço, o livro aberto ganha mais largura que o palco */
   .book-shot--open { width: 138%; left: -19%; right: auto; }
-  .statement-grid { grid-template-columns: minmax(0, 1.45fr) minmax(0, 0.75fr); align-items: end; }
+  .statement-grid { grid-template-columns: minmax(0, 1.45fr) minmax(0, 0.75fr); align-items: start; }
+  .statement-copy { padding-top: 0.45rem; }
   .audience-list { width: min(65%, 780px); }
   .audience-list p { padding-left: 2rem; }
   .audience-close { width: min(65%, 780px); margin-left: 0; text-align: right; }
@@ -452,8 +642,11 @@ h2 { font-size: clamp(2.2rem, 4.8vw, 3.8rem); font-weight: 500; }
   .container { width: min(100% - 6rem, var(--container)); }
   .hero-grid { grid-template-columns: minmax(0, 1.18fr) minmax(360px, 0.82fr); }
   .hero { padding-top: 7.5rem; }
-  .reading-grid { grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr); gap: 7rem; }
-  .origin-grid { grid-template-columns: minmax(300px, 0.68fr) minmax(0, 1.32fr); gap: 5rem; }
+  /* Livro e texto começam na mesma altura */
+  .reading-grid { grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr); gap: 7rem; align-items: start; }
+  /* O texto começa na altura do 414 e desce junto com a rolagem até a base da moldura */
+  .origin-grid { grid-template-columns: minmax(300px, 0.68fr) minmax(0, 1.32fr); gap: 5rem; align-items: start; }
+  .origin-copy { position: sticky; top: 3rem; height: auto; justify-content: flex-start; margin-bottom: -18px; }
   .author-grid { grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: 7rem; }
   .preorder-grid { grid-template-columns: minmax(0, 1.14fr) minmax(0, 1fr); gap: 4.5rem; }
   .kit-shot { width: min(112%, 700px); margin-left: -8%; }
@@ -467,7 +660,15 @@ h2 { font-size: clamp(2.2rem, 4.8vw, 3.8rem); font-weight: 500; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
-  .has-js .reveal { opacity: 1; transform: none; }
   /* Quem pede menos movimento fica com a fotografia da abertura */
   .hero-video { display: none; }
+  /* O carrossel e as gavetas dos lançamentos fazem parte do desenho pedido e continuam animados */
+  .marquee__track { animation: marquee var(--dur, 80s) linear infinite !important; }
+  .has-js .events-drawers { transition: transform 750ms cubic-bezier(0.7, 0, 0.2, 1) !important; }
+  .has-js .drawer__body { transition: grid-template-rows 750ms cubic-bezier(0.7, 0, 0.2, 1) !important; }
+  .has-js .drawer__inner { transition: opacity 500ms ease !important; }
 }
+
+/* Animações de rolagem (GSAP): títulos sobem palavra por palavra */
+.w { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.12em; margin-bottom: -0.12em; }
+.wi { display: inline-block; will-change: transform; }
