@@ -400,7 +400,9 @@ h2 { font-size: clamp(2.2rem, 4.8vw, 3.8rem); font-weight: 500; }
    sem deformar, com uma folga de --frame-gap em volta */
 .origin-figure { --frame-gap: 34px; position: relative; width: min(100% - 2 * var(--frame-gap), 330px); margin: calc(2.25rem + var(--frame-gap)) var(--frame-gap) var(--frame-gap); }
 .origin-photo { display: block; width: 100%; height: auto; aspect-ratio: 0.82; object-fit: cover; object-position: center bottom; filter: saturate(0.72) contrast(1.03); border: var(--border); }
-.memory-frame {
+.origin-figure .memory-frame {
+  /* zera a margem herdada de .origin-number span, senão o visor desce e a foto fica fora do centro */
+  margin: 0;
   position: absolute;
   inset: calc(-1 * var(--frame-gap));
   border: 1px solid transparent;
