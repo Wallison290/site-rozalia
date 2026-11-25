@@ -197,8 +197,11 @@
       <div class="container origin-grid">
         <div class="origin-number reveal">
           <strong>414</strong><span>dias</span><p>de presença em meio à mudança</p>
-          <img class="origin-photo" src="assets/foto-arco-rozalia.webp" alt="Arco de pedra com uma porta de madeira, atravessado pela luz do sol" width="820" height="1230" loading="lazy">
-          <img class="memory-frame" src="assets/simbolo-moldura-memoria.webp" alt="" aria-hidden="true" loading="lazy">
+          <!-- Foto dentro do visor de foco: os cantos da moldura abraçam as bordas da foto -->
+          <div class="origin-figure">
+            <img class="origin-photo" src="assets/foto-arco-rozalia.webp" alt="Arco de pedra com uma porta de madeira, atravessado pela luz do sol" width="820" height="1230" loading="lazy">
+            <span class="memory-frame" aria-hidden="true"></span>
+          </div>
         </div>
         <div class="origin-copy reveal reveal--delay">
           <p class="eyebrow">Como o livro nasceu</p>
@@ -291,6 +294,7 @@
               </button>
               <div class="drawer__body">
                 <div class="drawer__inner">
+                  <p class="drawer__credit">Fotografia: Thiago Alves</p>
                   <div class="marquee" style="--dur: 31s" role="group" aria-label="Fotos do lançamento na Bienal Internacional do Livro">
                     <div class="marquee__track">
                   <div class="marquee__group">
@@ -344,6 +348,7 @@
               </button>
               <div class="drawer__body">
                 <div class="drawer__inner">
+                  <p class="drawer__credit">Fotografia: Thiago Alves</p>
                   <div class="marquee" style="--dur: 85s" role="group" aria-label="Fotos do lançamento na Galeria Magalu">
                     <div class="marquee__track">
                   <div class="marquee__group">
@@ -411,6 +416,7 @@
               </button>
               <div class="drawer__body">
                 <div class="drawer__inner">
+                  <p class="drawer__credit">Fotografia: Ulisses Franceschi</p>
                   <div class="marquee" style="--dur: 85s" role="group" aria-label="Fotos do lançamento na ReservArt Galeria">
                     <div class="marquee__track">
                   <div class="marquee__group">
@@ -478,6 +484,7 @@
               </button>
               <div class="drawer__body">
                 <div class="drawer__inner">
+                  <p class="drawer__credit">Fotografia: Cassia Cinque / 4Ever Fotos</p>
                   <div class="marquee" style="--dur: 85s" role="group" aria-label="Fotos do lançamento no Centro Cultural Unimed-BH Minas">
                     <div class="marquee__track">
                   <div class="marquee__group">
@@ -545,6 +552,7 @@
               </button>
               <div class="drawer__body">
                 <div class="drawer__inner">
+                  <p class="drawer__credit">Fotografia: Carol Leite</p>
                   <div class="marquee" style="--dur: 85s" role="group" aria-label="Fotos do lançamento na Livraria Leitura">
                     <div class="marquee__track">
                   <div class="marquee__group">
@@ -662,7 +670,8 @@
   <!-- Modal: onde comprar o livro -->
   <dialog class="buy-modal" id="onde-comprar" aria-labelledby="buy-modal-title">
     <div class="buy-modal__inner">
-      <button class="buy-modal__close" type="button" data-close-buy>Fechar</button>
+      <!-- form method="dialog": o próprio navegador fecha o modal, mesmo se o script falhar -->
+      <form method="dialog" class="buy-modal__close-form"><button class="buy-modal__close" type="submit" data-close-buy aria-label="Fechar">Fechar</button></form>
       <p class="eyebrow">ENTREVIVER // PERMANECER</p>
       <h2 id="buy-modal-title">Escolha onde comprar.</h2>
       <div class="buy-modal__stores">
@@ -807,7 +816,9 @@
         });
       });
       buyModal.querySelectorAll('[data-close-buy]').forEach((btn) => {
-        btn.addEventListener('click', () => buyModal.close());
+        /* pointerup fecha na hora no toque (sem esperar o clique atrasado de alguns tablets) */
+        btn.addEventListener('pointerup', (event) => { event.preventDefault(); buyModal.close(); });
+        btn.addEventListener('click', (event) => { event.preventDefault(); buyModal.close(); });
       });
       /* Clicar fora do cartão fecha o modal */
       buyModal.addEventListener('click', (event) => {

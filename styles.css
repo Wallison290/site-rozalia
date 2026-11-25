@@ -143,11 +143,12 @@ h2 { font-size: clamp(2.2rem, 4.8vw, 3.8rem); font-weight: 500; }
 .buy-modal[open] { animation: buy-modal-in 260ms ease-out; }
 @keyframes buy-modal-in { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
 .buy-modal__inner { position: relative; padding: clamp(1.5rem, 4vw, 2.25rem); }
+.buy-modal__close-form { position: absolute; top: 0.6rem; right: 0.6rem; z-index: 2; margin: 0; }
 .buy-modal__close {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  padding: 0.35rem 0.7rem;
+  min-width: 48px;
+  min-height: 44px;
+  padding: 0.5rem 1rem;
+  touch-action: manipulation;
   border: 1px solid rgba(224, 215, 198, 0.4);
   border-radius: 999px;
   background: transparent;
@@ -395,8 +396,18 @@ h2 { font-size: clamp(2.2rem, 4.8vw, 3.8rem); font-weight: 500; }
 .origin-number strong { display: block; color: var(--color-moss); font-family: var(--font-display); font-size: clamp(7rem, 24vw, 14rem); font-weight: 500; line-height: 0.76; letter-spacing: -0.07em; }
 .origin-number span { display: block; margin-top: 1.3rem; font-size: 2rem; color: var(--color-accent); }
 .origin-number p { margin: 1rem 0 0; font-size: 0.85rem; white-space: nowrap; }
-.origin-photo { width: min(100%, 330px); height: auto; aspect-ratio: 0.82; margin-top: 2.25rem; object-fit: cover; object-position: center bottom; filter: saturate(0.72) contrast(1.03); border: var(--border); }
-.memory-frame { position: absolute; width: min(100%, 365px); left: -18px; bottom: -18px; opacity: 0.58; mix-blend-mode: multiply; pointer-events: none; }
+/* A foto fica dentro do visor: os quatro cantos (border-image) acompanham o tamanho da foto
+   sem deformar, com uma folga de --frame-gap em volta */
+.origin-figure { --frame-gap: 34px; position: relative; width: min(100% - 2 * var(--frame-gap), 330px); margin: calc(2.25rem + var(--frame-gap)) var(--frame-gap) var(--frame-gap); }
+.origin-photo { display: block; width: 100%; height: auto; aspect-ratio: 0.82; object-fit: cover; object-position: center bottom; filter: saturate(0.72) contrast(1.03); border: var(--border); }
+.memory-frame {
+  position: absolute;
+  inset: calc(-1 * var(--frame-gap));
+  border: 1px solid transparent;
+  border-image: url("assets/simbolo-moldura-cantos.webp") 125 / 48px stretch;
+  opacity: 0.72;
+  pointer-events: none;
+}
 .origin-copy { width: 100%; max-width: none; display: flex; flex-direction: column; justify-content: center; height: 100%; }
 .origin-copy h2 { margin-bottom: 2rem; }
 .origin-copy p { margin-bottom: 1.4rem; font-size: 1.05rem; }
@@ -526,6 +537,8 @@ h2 { font-size: clamp(2.2rem, 4.8vw, 3.8rem); font-weight: 500; }
 /* A gaveta abre e fecha pela altura da linha da grade */
 .drawer__body { display: grid; grid-template-rows: 1fr; }
 .drawer__inner { min-height: 0; overflow: hidden; }
+/* Crédito do fotógrafo, logo abaixo do nome do evento */
+.drawer__credit { margin: 0 0 0.9rem; padding-top: 0.1rem; font-size: 0.82rem; line-height: 1.4; letter-spacing: 0.02em; color: var(--color-accent); opacity: 0.85; }
 
 /* Carrossel infinito: dois grupos iguais deslizando sem emenda, de ponta a ponta da tela */
 .marquee { margin-inline: calc(50% - 50vw); padding-bottom: 1.4rem; overflow: hidden; }
